@@ -9,7 +9,7 @@
     "export": "slidev export --with-clicks --per-slide"
   },
   "dependencies": {
-    "slidev-theme-hebmu": "git+https://github.com/Lilong-Dong-Lab/slidev-theme-hebmu.git"
+    "slidev-theme-hebmu": "github:Lilong-Dong-Lab/slidev-theme-hebmu"
   },
   "devDependencies": {
     "playwright-chromium": "^1.52.0"
