@@ -1,0 +1,17 @@
+{
+  "name": "bioinfo-ch10-network-analysis",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "slidev --open",
+    "build": "slidev build",
+    "build-base": "slidev build --out ../../dist/bioinfo/ch10-network-analysis --base /bioinfo/ch10-network-analysis/",
+    "export": "slidev export --with-clicks --per-slide"
+  },
+  "dependencies": {
+    "slidev-theme-hebmu": "github:Lilong-Dong-Lab/slidev-theme-hebmu"
+  },
+  "devDependencies": {
+    "playwright-chromium": "^1.52.0"
+  }
+}

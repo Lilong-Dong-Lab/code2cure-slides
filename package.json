@@ -1,0 +1,16 @@
+{
+  "name": "code2cure-slides",
+  "type": "module",
+  "private": true,
+  "packageManager": "pnpm@10.11.0",
+  "scripts": {
+    "cleanup:dist": "rimraf --glob dist",
+    "packages:build": "pnpm cleanup:dist && pnpm -r --filter=./packages/* run build",
+    "packages:build-base": "pnpm cleanup:dist && pnpm -r --filter=./packages/* run build-base"
+  },
+  "devDependencies": {
+    "@slidev/cli": "^52.0.0",
+    "@slidev/client": "^52.0.0",
+    "rimraf": "^6.0.1"
+  }
+}
