@@ -1,4 +1,4 @@
-import { readdirSync, readFileSync, writeFileSync, existsSync } from 'node:fs'
+import { readdirSync, readFileSync, writeFileSync, statSync } from 'node:fs'
 import { join } from 'node:path'
 
 const distRoot = new URL('../dist', import.meta.url).pathname
@@ -9,9 +9,11 @@ function walk(dir) {
     if (!entry.isDirectory()) continue
     const child = join(dir, entry.name)
     const redirectsFile = join(child, '_redirects')
-    if (existsSync(redirectsFile)) {
-      rules.push(readFileSync(redirectsFile, 'utf8').trim())
-    }
+    try {
+      if (statSync(redirectsFile).isFile()) {
+        rules.push(readFileSync(redirectsFile, 'utf8').trim())
+      }
+    } catch {}
     walk(child)
   }
 }

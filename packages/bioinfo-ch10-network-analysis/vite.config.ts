@@ -1,7 +1,18 @@
-import { existsSync, createReadStream, statSync, readdirSync, copyFileSync, mkdirSync, rmSync } from "node:fs";
-import { resolve, join, extname, relative } from "node:path";
+import {
+  existsSync,
+  createReadStream,
+  statSync,
+  readdirSync,
+  copyFileSync,
+  mkdirSync,
+  rmSync,
+} from "node:fs";
+import { createRequire } from "node:module";
+import { dirname, resolve, join, extname, relative } from "node:path";
 import type { Plugin } from "vite";
 import { defineConfig } from "vite";
+
+const require = createRequire(import.meta.url);
 
 const MIME_TYPES: Record<string, string> = {
   ".jpeg": "image/jpeg",
@@ -16,41 +27,45 @@ const MIME_TYPES: Record<string, string> = {
   ".ttf": "font/ttf",
 };
 
-function collectFiles(dir: string, base = dir): string[] {
-  if (!existsSync(dir)) return [];
-  const files: string[] = [];
+function collectFiles(dir: string, out: string[] = []): string[] {
   for (const entry of readdirSync(dir, { withFileTypes: true })) {
     const full = join(dir, entry.name);
-    if (entry.isDirectory()) files.push(...collectFiles(full, base));
-    else if (entry.isFile()) files.push(full);
+    entry.isDirectory() ? collectFiles(full, out) : out.push(full);
   }
-  return files;
+  return out;
+}
+
+function resolveThemePublicDir(): string | undefined {
+  try {
+    const themePackageJson = require.resolve("slidev-theme-hebmu/package.json");
+    return resolve(dirname(themePackageJson), "public");
+  } catch {
+    const fallback = resolve(
+      import.meta.dirname,
+      "node_modules/slidev-theme-hebmu/public",
+    );
+    return existsSync(fallback) ? fallback : undefined;
+  }
 }
 
 function themeStaticPlugin(): Plugin {
-  const themePublicDir = resolve(
-    import.meta.dirname,
-    "node_modules/slidev-theme-hebmu/public",
-  );
+  const themePublicDir = resolveThemePublicDir();
 
   let outDir: string | undefined;
 
   return {
     name: "theme-static-assets",
 
-    // Dev: serve /theme/* from theme public dir
     configureServer(server) {
-      if (!existsSync(themePublicDir)) return;
+      if (!themePublicDir || !existsSync(themePublicDir)) return;
 
       server.middlewares.use((req, res, next) => {
         const url = req.url?.split("?")[0];
         if (!url || !url.startsWith("/theme/")) return next();
 
         const relativePath = url.slice("/theme/".length);
-        if (relativePath.includes("..")) return next();
-
-        const filePath = join(themePublicDir, relativePath);
-        if (!existsSync(filePath)) return next();
+        const filePath = resolve(themePublicDir, relativePath);
+        if (!filePath.startsWith(themePublicDir + "/")) return next();
 
         try {
           const stat = statSync(filePath);
@@ -69,11 +84,11 @@ function themeStaticPlugin(): Plugin {
       });
     },
 
-    // Build: copy theme public files to dist/<base>/theme/ after bundling
     writeBundle(options) {
-      if (!existsSync(themePublicDir)) return;
+      if (!themePublicDir || !existsSync(themePublicDir) || !options.dir) {
+        return;
+      }
       outDir = options.dir;
-      if (!outDir) return;
 
       const files = collectFiles(themePublicDir);
       for (const absFile of files) {
@@ -84,16 +99,11 @@ function themeStaticPlugin(): Plugin {
       }
     },
 
-    // Remove the incorrectly-nested directory left by vite-plugin-static-copy
+    // Slidev's build copies the pnpm symlink tree into dist/.../theme/node_modules/
     closeBundle() {
       if (!outDir) return;
-      const themeDir = join(outDir, "theme");
-      if (!existsSync(themeDir)) return;
-      for (const entry of readdirSync(themeDir, { withFileTypes: true })) {
-        if (entry.isDirectory() && entry.name === "node_modules") {
-          rmSync(join(themeDir, entry.name), { recursive: true, force: true });
-        }
-      }
+      const nm = join(outDir, "theme", "node_modules");
+      if (existsSync(nm)) rmSync(nm, { recursive: true, force: true });
     },
   };
 }
