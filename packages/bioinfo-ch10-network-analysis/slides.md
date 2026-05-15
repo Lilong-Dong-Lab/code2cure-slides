@@ -26,9 +26,9 @@ themeConfig:
   paginationY: 'b'
   paginationPagesDisabled: [1]
   footerMode: 'compact'
-  logoUrl: '/hebmu-assets/hebmu-logo.png'
-  coverBackgroundUrl: '/hebmu-assets/campus-cover.jpeg'
-  endBackgroundUrl: '/hebmu-assets/campus-end.jpeg'
+  logoUrl: '/hebmu-logo.png'
+  coverBackgroundUrl: '/campus-cover.jpeg'
+  endBackgroundUrl: '/campus-end.jpeg'
   footerDepartment: '河北医科大学 基础医学院 医药信息学教研室'
   footerAuthor: '董立龙'
   footerEmail: 'lilong.dong@hebmu.edu.cn'
