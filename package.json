@@ -6,7 +6,8 @@
   "scripts": {
     "cleanup:dist": "rimraf --glob dist",
     "packages:build": "pnpm cleanup:dist && pnpm -r --filter=./packages/* run build",
-    "packages:build-base": "pnpm cleanup:dist && pnpm -r --filter=./packages/* run build-base"
+    "packages:build-base": "pnpm cleanup:dist && pnpm -r --filter=./packages/* run build-base && pnpm postbuild:redirects",
+    "postbuild:redirects": "node scripts/aggregate-redirects.mjs"
   },
   "devDependencies": {
     "@slidev/cli": "^52.0.0",

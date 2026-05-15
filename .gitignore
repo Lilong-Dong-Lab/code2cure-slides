@@ -4,3 +4,4 @@ dist/
 slides-export.pdf
 *.pptx
 .DS_Store
+CLAUDE.local.md
