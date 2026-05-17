@@ -1,0 +1,17 @@
+{
+  "name": "bioinfo-ch11-gene-function-annotation",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "slidev --open",
+    "build": "slidev build",
+    "build-base": "slidev build --out ../../dist/bioinfo/ch11-gene-function-annotation --base /bioinfo/ch11-gene-function-annotation/",
+    "export": "slidev export --with-clicks --per-slide"
+  },
+  "dependencies": {
+    "slidev-theme-hebmu": "github:Lilong-Dong-Lab/slidev-theme-hebmu"
+  },
+  "devDependencies": {
+    "playwright-chromium": "^1.52.0"
+  }
+}
