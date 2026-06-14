@@ -526,12 +526,14 @@ layout: default
 <!-- notes: 多重检验校正是富集分析最重要的统计概念。不校正结果不可信。实际操作中只需看 adjusted p-value。-->
 
 ---
-layout: two-col
+layout: default
 ---
 
 # ORA vs. GSEA
 
-::left::
+<div class="grid grid-cols-2 gap-7 mt-4">
+
+<div>
 
 ### ORA (过代表分析)
 - **输入**：离散基因列表（需要阈值）
@@ -539,7 +541,9 @@ layout: two-col
 - **优点**：简单直观，工具丰富
 - **局限**：依赖人为阈值；丢失基因表达量信息
 
-::right::
+</div>
+
+<div>
 
 ### GSEA (基因集富集分析)
 - **输入**：全基因表达谱排序（不需要阈值）
@@ -550,6 +554,10 @@ layout: two-col
 
 <div class="mt-3 text-sm">
 <b>关系</b>：两种方法<b>互补</b>——实际研究中经常两种都做
+</div>
+
+</div>
+
 </div>
 
 <!-- notes: ORA 和 GSEA 是两种互补的方法。ORA 需要你先确定哪些基因是"差异的"，GSEA 不需要这个阈值。-->
@@ -864,12 +872,14 @@ flowchart LR
 </div>
 
 ---
-layout: two-col
+layout: default
 ---
 
 # 本章总结
 
-::left::
+<div class="grid grid-cols-2 gap-7 mt-4">
+
+<div>
 
 ### 核心数据库
 1. **GO** — 基因本体论，三大命名空间 (BP/MF/CC)，DAG 结构
@@ -879,12 +889,18 @@ layout: two-col
 3. **富集分析** — ORA（过代表）+ GSEA（基因集打分）
 4. **多重检验校正** — FDR/adjusted p-value
 
-::right::
+</div>
+
+<div>
 
 ### 核心工具
 5. **AmiGO/QuickGO** — GO 注释查询
 6. **KEGG** — 通路查询
 7. **clusterProfiler** — R 包，GO/KEGG 富集分析
+
+</div>
+
+</div>
 
 ---
 layout: default
