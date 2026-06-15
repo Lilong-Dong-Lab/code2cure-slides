@@ -5,3 +5,14 @@ slides-export.pdf
 *.pptx
 .DS_Store
 CLAUDE.local.md
+
+# Local tooling caches (not shared with the team)
+.pnpm-store/
+.playwright-mcp/
+.agents/
+
+# Locally-installed skill packs (unrelated Cloudflare/Workers skills leaked in;
+# keep the project's own new-deck skill tracked)
+skills-lock.json
+.claude/skills/*
+!.claude/skills/new-deck
