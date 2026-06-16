@@ -1,0 +1,17 @@
+{
+  "name": "bioinfo-ch15-pharmaceutical-bioinformatics",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "slidev --open",
+    "build": "slidev build",
+    "build-base": "slidev build --out ../../dist/bioinfo/ch15-pharmaceutical-bioinformatics --base /bioinfo/ch15-pharmaceutical-bioinformatics/",
+    "export": "slidev export --with-clicks --per-slide"
+  },
+  "dependencies": {
+    "slidev-theme-hebmu": "github:Lilong-Dong-Lab/slidev-theme-hebmu"
+  },
+  "devDependencies": {
+    "playwright-chromium": "^1.52.0"
+  }
+}
