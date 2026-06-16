@@ -252,7 +252,7 @@ layout: default
 
 | 数据库 | 全称 | 特色 |
 |--------|------|------|
-| **TTD** | Therapeutic Target Database | 2025 个靶点，17816 个药物-配体互作 |
+| **TTD** | Therapeutic Target Database | 3798 个靶点，约 40398 种药物（TTD 2026）|
 | **KEGG DRUG** | KEGG 药物数据库 | 基于化学结构/靶标/代谢酶关联药物 |
 | **DART** | Drug Adverse Reaction Targets | 药物副反应靶标 |
 | **TRMPD** | Therapeutically Relevant Multiple Pathways | 多信号通路与靶标交叉信息 |
@@ -1199,12 +1199,13 @@ layout: default
 
 | 数据类型 | 数量 |
 |---------|------|
-| 药物 | 3152 种 |
-| 疾病 | 3445 种 |
-| 基因 | 26960 个 |
-| PK/PD 通路 | 102 个 |
+| 药物 | 3364 种 |
+| 基因 | 6123 个 |
+| PK/PD 通路 | 274 个 |
 | VIP 基因 | 42 个 |
-| 个体化用药指南 | 226 个 |
+| 个体化用药指南 | 218 个 |
+
+<div class="text-xs opacity-70 mt-2">数据为 ClinPGx 实时统计（2026-06；PharmGKB 已整合为 ClinPGx，pharmgkb.org → clinpgx.org）。教材 §15.4(一) 中基因计数（26960）明显偏高，已更正；疾病数 ClinPGx 未单独统计，已移除该行；VIP 基因为原值。</div>
 
 **五大数据类别**：临床结局 (CO)、PD、PK、分子/细胞功能分析 (MCFA)、基因型 (GT)
 
@@ -1225,14 +1226,18 @@ layout: default
 
 整合四大信息：变异 (dbSNP) + 表型 (MedGen/OMIM) + 注释 (ACMG) + 证据 (PubMed)
 
+**规模**：约 452 万条唯一变异，覆盖 92,782 个基因（NCBI ClinVar，2026-06）
+
 **COSMIC** — 癌症体细胞突变数据库 (Sanger Institute) [教材 §15.4(四)]
 
 | 数据 | 数量 |
 |------|------|
-| 基因 | 27829 个 |
-| 编码突变 | 1808915 个 |
-| 拷贝数变异 | 674592 个 |
-| 样本 | 999872 个 |
+| 癌症基因普查 (CGC) | 约 740 个 |
+| 编码变异（唯一） | 5882909 个 |
+| 拷贝数变异 | 约 1207190 个 |
+| 样本 | 1566365 个 |
+
+<div class="text-xs opacity-70 mt-2">数据为 COSMIC v104（2026-05，cancer.sanger.ac.uk）。CGC（Cancer Gene Census）为人工策展癌症基因目录；拷贝数变异为近年停止更新的历史统计。教材 §15.4(四) 历史数据已据此更新。</div>
 
 - 肿瘤体细胞突变筛查是**肿瘤药物基因组学**的重要方向
 - 可按基因名、突变类型检索
