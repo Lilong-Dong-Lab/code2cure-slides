@@ -582,7 +582,7 @@ density: compact
 | 工具 | 类型 | 特点 |
 |------|------|------|
 | **clusterProfiler** | R 包 | 主流，支持 GO/KEGG/GSEA，可视化丰富 |
-| DAVID | 在线平台 | 操作简单，适合初学者 |
+| DAVID | 在线平台 | 操作简单，适合初学者（数据库更新较慢；新近多改用 g:Profiler/Enrichr） |
 | KOBAS | 在线平台 | 基于 KO 注释，多物种支持 |
 | GSEA software | 桌面软件 | 官方 GSEA 工具 |
 
@@ -862,8 +862,8 @@ flowchart LR
     D --> E["GO 功能<br/>预测结果"]
 ```
 
-- **GOLabeler**：2017 年 CAFA 国际竞赛冠军（复旦大学）
-- **NetGO 2.0/3.0**：进一步整合 PPI 网络和文献信息
+- **GOLabeler**：复旦大学朱山风课题组（2018 年发表于 Bioinformatics），序列学习排序方法；前驱方法 GoFDR 曾在 CAFA2 竞赛中名列前茅
+- **NetGO 3（及更新版本）**：进一步整合 PPI 网络和文献信息
 - **DeepGOPlus**：深度学习方法，直接从序列预测功能
 - **CAFA** (Critical Assessment of protein Function Annotation)：蛋白质功能自动注释国际竞赛
 
