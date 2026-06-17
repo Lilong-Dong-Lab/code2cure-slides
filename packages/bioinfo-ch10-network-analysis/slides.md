@@ -584,7 +584,7 @@ $$k_v = \text{与节点 } v \text{ 相连的边数}$$
 | 平均度 $\langle k \rangle$ | 网络整体连通性 |
 
 
-**关键发现**：1. Hub 蛋白倾向于保守进化（演化速率慢）2. Hub 蛋白与疾病高度相关 3. 网络中少数 hub 节点承担大部分连接
+**关键发现**：1. 有研究认为 Hub 蛋白可能演化更慢（该观点存在争议，见 Batada et al. 2006）2. Hub 蛋白与疾病高度相关 3. 网络中少数 hub 节点承担大部分连接
 
 ---
 layout: default
@@ -963,7 +963,7 @@ density: compact
 
 | 网络类型 | 数据库 | 核心功能 | 特色 |
 |---------|--------|---------|------|
-| **PPI** | **STRING** | 多证据整合互作网络 | 7种证据源，2,031物种 |
+| **PPI** | **STRING** | 多证据整合互作网络 | 7种证据源，12,535物种 |
 | | **BioGRID** | 文献 curated 互作数据 | 人工审阅，质量高 |
 | | **DIP** | 实验验证的 PPI | 数据库质量管控 |
 | | **IntAct** | 分子互作 | IMEx 联盟成员 |
@@ -994,7 +994,7 @@ density: compact
 
 **STRING** (Search Tool for Retrieval of Interacting Genes/Proteins)
 
-覆盖 **2,031 物种**，约 960 万已知蛋白 + 1,380 万预测蛋白的互作关系
+覆盖 **12,535 物种**，约 5930 万蛋白、超过 200 亿条互作关系（STRING v12.0，2025）
 
 <div class="text-xs">
 
@@ -1009,6 +1009,8 @@ density: compact
 | 融合事件 (Gene Fusion) | 基因融合事件的证据 | 低-中 |
 
 </div>
+
+<div class="text-xs opacity-70 mt-2">基因组上下文证据（邻域/共现/融合）对原核生物最有效，对真核生物较弱。</div>
 
 ---
 layout: default
@@ -1067,7 +1069,7 @@ density: compact
 | 插件 | 功能 |
 |------|------|
 | **MCODE** | 模块/复合物检测 |
-| **cytoHubba** | Hub 节点识别（12种算法） |
+| **cytoHubba** | Hub 节点识别（11种算法） |
 | **stringApp** | 直接在 Cytoscape 里连接 STRING API |
 
 <!-- notes: 今天带大家走一遍从 STRING 导出数据到 Cytoscape 可视化的完整流程。课后按 PDF 指南自行练习。 -->
