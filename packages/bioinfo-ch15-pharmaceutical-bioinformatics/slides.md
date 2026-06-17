@@ -101,7 +101,7 @@ layout: default
 <v-clicks>
 
 **药物研发的现实** [教材 §15.1]：
-- 研发一个新药平均耗时 **10–15 年**，花费 **10–26 亿美元**
+- 研发一个新药平均耗时 **10–15 年**，花费 **约 20–40 亿美元**（估值因方法差异很大）
 - 进入临床试验的候选药物中，仅约 **10%** 最终获批上市
 - 失败主因：**有效性不足**、**毒性过大**、**个体差异未被充分考虑**
 
@@ -172,7 +172,7 @@ layout: default
 </div>
 
 <div class="mt-3 text-sm">
-<b>现状</b>：已确认药物靶标 >500 个，预计人体蛋白质类靶标总数可达 ~3000 个 [教材表15-1]
+<b>现状</b>：已确认的人类药物靶标约 667 个（Finan et al. 2017），估计可成药靶标约 3000–4500 个 [教材表15-1]
 </div>
 
 ---
@@ -613,7 +613,7 @@ layout: default
 |------|------|
 | 常规筛选 | 成本高、效率低 |
 | 高通量筛选 (HTS) | 样品制备仍需大量资源 |
-| 组合化学库 | 候选化合物 > 700 万种 |
+| 组合化学库 | 候选化合物可达上亿种 |
 
 <v-click>
 
@@ -621,7 +621,7 @@ layout: default
 
 ```mermaid
 flowchart LR
-    A["虚拟化合物库<br/>(>700万)"] --> B["计算机评价<br/>成药性"]
+    A["虚拟化合物库<br/>(数十亿级)"] --> B["计算机评价<br/>成药性"]
     B --> C["候选子集<br/>(数百~数千)"]
     C --> D["实验制备<br/>与验证"]
 ```
@@ -715,11 +715,11 @@ density: compact
 | **DOCK** | UCSF, Kuntz 组 | 几何匹配 + 能量评分 | 配体柔性（二面角旋转） | 最早（1982），应用最广 |
 | **AutoDock** | Olson 组 | 模拟退火 + 遗传算法 | 半柔性对接 | 结合自由能评价，单个配体对接 |
 | **GOLD** | 遗传算法 | 子种群遗传算法 | 配体 + 部分受体柔性 | 氢键约束 |
-| **MVD** | Molegro | 模板对接 | 配体柔性 | 准确率高 (87%)，界面友好 |
-| **Affinity** | Accelrys/杜邦 | 蒙特卡罗 + MD 精化 | 双方柔性 | 精度高但计算量大 |
+| **MVD** | Molegro（已停产） | 模板对接 | 配体柔性 | 准确率高 (87%)，界面友好 |
+| **Affinity** | Accelrys/杜邦（已停更） | 蒙特卡罗 + MD 精化 | 双方柔性 | 精度高但计算量大 |
 
 <div class="mt-3 text-sm">
-<b>选择建议</b>：大规模筛选用 DOCK/GOLD，精细互作分析用 AutoDock/Affinity，初学者推荐 MVD
+<b>选择建议</b>：大规模筛选用 DOCK/GOLD，精细互作分析用 AutoDock，初学者推荐 AutoDock Vina / GNINA（免费、活跃维护）
 </div>
 
 ---
@@ -769,7 +769,7 @@ layout: default
 **预测策略**：从分子结构特征出发，预测 ADMET 性质
 
 - 经典方法：Lipinski 五规则（口服药物初步筛选）
-- 进阶方法：机器学习模型、专家系统（COMPACT, DEREK, TOPKAT）
+- 进阶方法：机器学习模型、专家系统（Derek Nexus, OECD QSAR Toolbox, ADMETlab 2.0）
 - 核心思想：**在药物发现早期就预测 ADMET**，显著提高成功率
 
 </v-click>
@@ -1034,7 +1034,7 @@ layout: default
 <v-click>
 
 **案例：TSC1 突变与依维莫司疗效** [教材 §15.3(二)3]
-- 依维莫司：mTOR 抑制剂，治疗前列腺癌
+- 依维莫司：mTOR 抑制剂，治疗膀胱癌
 - 1 例完全应答患者 → WGS 发现 **TSC1 移码突变**
 - 进一步分析：依维莫司仅对 **TSC1 突变阳性**患者有效
 
@@ -1340,7 +1340,7 @@ layout: default
 
 - 约 **30%** 乳腺癌患者 HER2 基因过度表达
 - HER2 阳性 → 肿瘤恶性程度高、复发早、预后差
-- **曲妥珠单抗**（2006 年 FDA 批准）— 与 HER2 受体特异性结合 → 促进降解
+- **曲妥珠单抗**（1998 年 FDA 批准；2006 年扩展至早期乳腺癌辅助治疗）— 与 HER2 受体特异性结合 → 促进降解
 
 </div>
 
@@ -1607,7 +1607,7 @@ layout: default
 - DrugBank: https://go.drugbank.com
 - PharmGKB: https://www.pharmgkb.org
 - ChEMBL: https://www.ebi.ac.uk/chembl
-- ZINC15: https://zinc15.docking.org
+- ZINC22: https://zinc.docking.org
 
 ---
 layout: end
