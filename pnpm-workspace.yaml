@@ -1,6 +1,0 @@
-packages:
-  - 'packages/**'
-  - '!dist/**'
-onlyBuiltDependencies:
-  - esbuild
-  - playwright-chromium
