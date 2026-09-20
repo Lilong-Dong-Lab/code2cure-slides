@@ -7,7 +7,6 @@ slides-export.pdf
 CLAUDE.local.md
 
 # Local tooling caches (not shared with the team)
-.pnpm-store/
 .playwright-mcp/
 .agents/
 

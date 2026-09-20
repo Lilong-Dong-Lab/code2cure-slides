@@ -2,16 +2,29 @@
   "name": "code2cure-slides",
   "type": "module",
   "private": true,
-  "packageManager": "pnpm@10.11.0",
+  "engines": {
+    "node": ">=22"
+  },
+  "workspaces": [
+    "packages/*"
+  ],
   "scripts": {
     "cleanup:dist": "rimraf --glob dist",
-    "packages:build": "pnpm cleanup:dist && pnpm -r --filter=./packages/* run build",
-    "packages:build-base": "pnpm cleanup:dist && pnpm -r --filter=./packages/* run build-base && pnpm postbuild:redirects",
-    "postbuild:redirects": "node scripts/aggregate-redirects.mjs"
+    "packages:build": "npm run cleanup:dist && npm run build --workspaces --if-present",
+    "packages:build-base": "npm run cleanup:dist && npm run build-base --workspaces --if-present && npm run postbuild:redirects",
+    "postbuild:redirects": "node scripts/aggregate-redirects.mjs",
+    "deploy": "wrangler pages deploy dist --project-name=code2cure-slides"
   },
   "devDependencies": {
     "@slidev/cli": "^52.0.0",
     "@slidev/client": "^52.0.0",
-    "rimraf": "^6.0.1"
+    "rimraf": "^6.0.1",
+    "wrangler": "^4.135.0"
+  },
+  "allowScripts": {
+    "esbuild": true,
+    "playwright-chromium": true,
+    "workerd": true,
+    "fsevents": true
   }
 }
