@@ -24,6 +24,7 @@ npm run export -w bioinfo-ch10-network-analysis         # Export to PDF
 ## Monorepo structure
 
 - npm workspaces: each `packages/<name>/` is an independent Slidev project
+- npm 11.19 lockfile bug: `npm install` may write version-less marker entries (e.g. `{"dev": true}` under `packages/*/node_modules/<pkg>`) that crash `npm ci` with `Invalid Version:`. If `npm ci` fails after editing deps, delete those entries from `package-lock.json` (they carry no data)
 - New decks go in `packages/<name>/` with their own `package.json` and `slides.md`
 - Build output uses path convention: `dist/bioinfo/<deck-name>/`
 - Each deck's `build-base` script sets `--base` for correct asset paths on Cloudflare Pages
