@@ -29,7 +29,7 @@ A slide whose content does not fit at the normal reading size.
 _Avoid_: dense slide, small-text slide
 
 **Compact density**:
-The tighter reading size of a crowded slide.
+The theme's tighter layout for a crowded slide, which a deck may replace with its own type scale.
 _Avoid_: text shrink, small font
 
 **Bilingual heading**:

@@ -1,6 +1,6 @@
 ---
 name: new-deck
-description: Scaffold a new Slidev presentation deck in this monorepo. Use when adding a new lecture or topic. Accepts a deck name and optional course prefix (e.g. `/new-deck bioinfo-ch11-proteomics`).
+description: Scaffold a chapter deck (`<course>-ch<number>-<topic>`) or a service-course deck for the service course 生物信息学.
 disable-model-invocation: true
 ---
 
@@ -10,11 +10,56 @@ Create a new slide deck package in this Slidev monorepo.
 
 ## Inputs
 
-- `$ARGUMENTS` — deck name (required). Use format: `<course>-ch<number>-<topic>` (e.g. `bioinfo-ch11-proteomics`).
+- `$ARGUMENTS` — deck name (required).
 
 ## Steps
 
-1. Parse `$ARGUMENTS` as the deck name. Validate it follows the naming convention (`<course>-ch<number>-<topic>`). If invalid, ask the user to correct it.
+1. Parse `$ARGUMENTS` as the deck name. A name shaped `<course>-ch<number>-<topic>` (for example `bioinfo-ch11-proteomics`) is a chapter deck: follow the chapter-deck steps. A deck for the service course 生物信息学 is a service-course deck: keep the package name the user gave and follow the service-course steps. If the name matches neither, ask which it is.
+
+## Service-course deck
+
+2. Create `packages/<deck-name>/`.
+
+3. Create `packages/<deck-name>/package.json`:
+
+```json
+{
+  "name": "<deck-name>",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "slidev --open",
+    "build": "slidev build",
+    "export": "slidev export --with-clicks --per-slide"
+  },
+  "dependencies": {
+    "slidev-theme-hebmu": "git+https://github.com/Lilong-Dong-Lab/slidev-theme-hebmu.git"
+  }
+}
+```
+
+Omit `build-base` until the deck is published.
+
+4. Create `packages/<deck-name>/slides.md`:
+
+```markdown
+---
+theme: hebmu
+title: <Title>
+---
+
+# <Title>
+```
+
+5. Create `packages/<deck-name>/public/assets/`.
+
+6. From the repo root, run `npm install`.
+
+7. Start `npm run dev -w <deck-name>` briefly, then stop it, and confirm it boots.
+
+8. Print what was created and the dev command. Stop here.
+
+## Chapter deck
 
 2. Create the package directory: `packages/<deck-name>/`
 
