@@ -510,6 +510,7 @@ Solvent-excluded
 
 ---
 layout: default
+density: compact
 ---
 
 # 疏水性 (Hydrophobicity) 与脂水分配系数
@@ -525,8 +526,6 @@ $$\log P = \sum_{i=1}^{n} a_i \times f_i + b_i \times f_i$$
 
 <v-click>
 
-<div class="mt-3">
-    
 **logP 的意义**：
 
 | logP 范围 | 含义 |
@@ -534,8 +533,6 @@ $$\log P = \sum_{i=1}^{n} a_i \times f_i + b_i \times f_i$$
 | logP < 0 | 亲水性强，易溶于水 |
 | 0 < logP < 3 | 适中的疏水性 |
 | logP > 5 | 疏水性过强，与膜脂/血浆蛋白结合率高 |
-
-</div>
 
 **最佳范围**：口服药物 logP 通常在 **1–3** 之间
 
