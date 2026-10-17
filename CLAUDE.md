@@ -31,7 +31,7 @@ npm run export -w bioinfo-ch10-network-analysis         # Export to PDF
 
 ## Theme
 
-Uses `slidev-theme-hebmu` from a private GitHub repo (`Lilong-Dong-Lab/slidev-theme-hebmu`). CI authenticates via `GITHUB_TOKEN`. Local dev requires SSH or HTTPS access to this repo.
+Uses `slidev-theme-hebmu` from `Lilong-Dong-Lab/slidev-theme-hebmu`. CI installs the git pin in `package-lock.json` via `GITHUB_TOKEN`. Local preview reads `node_modules/slidev-theme-hebmu`, which may be a symlink to `/Users/hugodong/Documents/AcademicWorkplace/01_TEACHING_PORTFOLIO/Teaching_Resources/Template_Lectures/slidev-theme-hebmu`. A theme edit is not in CI until that pin moves.
 
 ## Deployment
 
