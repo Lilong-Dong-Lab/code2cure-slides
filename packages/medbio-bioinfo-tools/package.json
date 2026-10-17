@@ -1,0 +1,17 @@
+{
+  "name": "medbio-bioinfo-tools",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "slidev --open",
+    "build": "slidev build",
+    "export": "slidev export --with-clicks --per-slide"
+  },
+  "dependencies": {
+    "gsap": "^3.13.0",
+    "slidev-theme-hebmu": "git+https://github.com/Lilong-Dong-Lab/slidev-theme-hebmu.git"
+  },
+  "devDependencies": {
+    "playwright-chromium": "^1.52.0"
+  }
+}

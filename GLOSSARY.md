@@ -1,8 +1,20 @@
 # Lecture slides
 
-The shared language for the bioinformatics lecture decks and the HEBMU slide theme.
+The shared language for the HEBMU slide theme, the chapter decks, and the service-course decks.
 
 ## Language
+
+**Chapter deck**:
+A lecture deck for one chapter of the bioinformatics major.
+_Avoid_: major deck, course deck
+
+**Service-course deck**:
+A lecture deck for the service course 生物信息学.
+_Avoid_: tools lecture, medbio lecture
+
+**Drug-discovery pipeline**:
+The stage sequence from target discovery through clinical trial.
+_Avoid_: procedure, workflow
 
 **Repeated pattern**:
 A visual treatment that appears on more than one slide.
