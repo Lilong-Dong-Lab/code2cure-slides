@@ -13,7 +13,10 @@
     "packages:build": "npm run cleanup:dist && npm run build --workspaces --if-present",
     "packages:build-base": "npm run cleanup:dist && npm run build-base --workspaces --if-present && npm run postbuild:redirects",
     "postbuild:redirects": "node scripts/aggregate-redirects.mjs",
-    "deploy": "wrangler pages deploy dist --project-name=code2cure-slides"
+    "deploy": "wrangler pages deploy dist --project-name=code2cure-slides",
+    "test": "node --test scripts/check-lockfile.test.mjs",
+    "check:lockfile": "node scripts/check-lockfile.mjs",
+    "check:type-scale": "node scripts/check-type-scale.mjs"
   },
   "devDependencies": {
     "@slidev/cli": "^52.0.0",
