@@ -55,3 +55,11 @@ _Avoid_: grid, side-by-side
 **Source line**:
 A short muted line that states where a number, figure, or statement came from.
 _Avoid_: caption, footnote
+
+**Diagram look**:
+The color and type of a diagram's boxes and arrows.
+_Avoid_: chart style, theme
+
+**Diagram layout**:
+The spacing of diagram boxes and the path of the lines between them.
+_Avoid_: curve, routing
