@@ -291,7 +291,7 @@ graph LR
 - $V = V_1 \cup V_2$，边只在 $V_1$-$V_2$ 之间
 
 <div class="mt-4">
-经典案例：Goh et al. 2007, PNAS — "The Human Disease Network"（疾病-基因关联网络），揭示看似不相关的疾病可能共享同一个致病基因
+<div class="hebmu-source">经典案例：Goh et al. 2007, PNAS — "The Human Disease Network"（疾病-基因关联网络），揭示看似不相关的疾病可能共享同一个致病基因</div>
 </div>
 
 </div>
@@ -674,6 +674,7 @@ layout: default
 
 ---
 layout: default
+density: compact
 ---
 # 度分布 (Degree Distribution) (Cont.)
 

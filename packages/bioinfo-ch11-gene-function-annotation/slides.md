@@ -492,7 +492,7 @@ layout: default
 
 **问题**：GO 有几万个 term → 几万次统计检验
 
-<div class="hebmu-callout hebmu-callout-key">
+<div class="hebmu-callout hebmu-callout-warning">
 
 假设每次检验 p < 0.05：
 
@@ -700,7 +700,10 @@ ego <- enrichGO(gene          = genes,
 
 <div class="mt-3">
 <b>关键参数</b>：`ont = "BP"` — 分析 BP 命名空间；`pAdjustMethod = "BH"` — FDR 校正方法；`pvalueCutoff = 0.05` 同时筛选原始 p 值和 p.adjust，`qvalueCutoff = 0.05` 单独筛选 qvalue
-<br/><b>⚠️ 提示</b>：本演示为简化版，未指定背景基因集 (universe)。正式分析中，背景应设为"所有被检测且有机会进入差异基因列表的基因"，而非默认的全数据库基因。
+</div>
+
+<div class="hebmu-callout hebmu-callout-warning">
+<b>⚠️ 提示</b>：本演示为简化版，未指定背景基因集 (universe)。正式分析中，背景应设为"所有被检测且有机会进入差异基因列表的基因"，而非默认的全数据库基因。
 </div>
 
 <!-- notes: 代码演示。重点解释参数含义——pvalueCutoff 筛原始 p 值，qvalueCutoff 筛校正后 q 值，pAdjustMethod 指定校正方法。-->
