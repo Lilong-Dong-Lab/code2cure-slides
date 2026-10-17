@@ -144,7 +144,7 @@ layout: default
 
 <v-clicks>
 
-<div class="mt-9 text-sm">
+<div class="mt-9">
 特征①是必要条件，②③④是充分条件。满足越多，靶标质量越高。
 </div>
 
@@ -158,8 +158,6 @@ layout: default
 
 # 人体蛋白质类药物靶点主要家族
 
-<div class="text-lg">
-
 | 靶点类别 | 英文名 | 治疗领域 |
 |---------|--------|---------|
 | **G 蛋白偶联受体** | G-protein coupled receptors | 代谢疾病、心血管、炎症 |
@@ -169,11 +167,9 @@ layout: default
 | **磷酸二酯酶** | Phosphodiesterase | 炎症、心血管、勃起障碍 |
 | **蛋白酶** | Protease | 炎症、骨组织疾病、肿瘤 |
 
-</div>
 
-<div class="mt-3 text-sm">
 <b>现状</b>：已确认的人类药物靶标约 667 个（Finan et al. 2017），估计可成药靶标约 3000–4500 个 [教材表15-1]
-</div>
+
 
 ---
 layout: default
@@ -222,7 +218,7 @@ layout: default
 
 </div>
 
-<div class="text-xs opacity-70 mt-2">数据截至 2026 年 6 月（go.drugbank.com/stats）；DrugBank 持续增长，教材 §15.2(一) 的历史数据已据此更新。</div>
+<div class="hebmu-source">数据截至 2026 年 6 月（go.drugbank.com/stats）；DrugBank 持续增长，教材 §15.2(一) 的历史数据已据此更新。</div>
 
 <v-click>
 
@@ -261,7 +257,7 @@ layout: default
 
 </div>
 
-<div class="mt-3 text-sm">
+<div class="mt-3">
 <b>补充</b>：NRDB（NCBI 非冗余靶标库）、ADME（药代动力学蛋白）、TransportDB（转运蛋白）、PharmGED（药物遗传效应）、PubChem（化合物信息）、CSD（小分子晶体结构）
 </div>
 
@@ -352,7 +348,7 @@ layout: default
 
 **候选靶标的实验验证 — 五项确认标准**：
 
-<div class="mt-4 p-4 bg-yellow-50 rounded text-lg">
+<div class="hebmu-callout hebmu-callout-key">
   <ol class="list-decimal pl-6 space-y-1">
     <li>靶标功能与动物模型疾病病理存在必然联系</li>
     <li>细胞模型中靶标功能与疾病过程存在必然联系</li>
@@ -366,7 +362,7 @@ layout: default
 
 <v-click>
 
-<div class="mt-6 text-l color-blue-600">
+<div class="hebmu-callout hebmu-callout-warning">
 ⚠️ 注意: 生物信息学预测的靶标必须经过实验验证才能进入药物开发流程。
 </div>
 
@@ -380,7 +376,7 @@ layout: default
 
 # 第一节小结
 
-<div class="mt-4 p-4 bg-blue-50 rounded">
+<div class="hebmu-callout hebmu-callout-procedure">
 
 **药物靶标发现的生物信息学路线**：
 
@@ -388,13 +384,13 @@ layout: default
 
 </div>
 
-<div class="mt-4 p-4 bg-green-50 rounded">
+<div class="hebmu-callout hebmu-callout-key">
     
 **关键数据库**：DrugBank、TTD、KEGG DRUG
 
 </div>
 
-<div class="mt-4 p-4 bg-red-50 rounded">
+<div class="hebmu-callout hebmu-callout-key">
 <b>关键概念</b>：
 <ol>
     <li>药物靶标的 4 个特征</li>
@@ -455,8 +451,8 @@ layout: default
 
 **连接表 (Connection Table)** — 计算机表示分子结构的标准方式
 
-<div class="grid grid-cols-2 gap-4 mt-12">
-<div class="p-3 bg-blue-50 rounded">
+<div class="hebmu-columns">
+<div class="hebmu-card">
 
 **连接表包含**：
 - 所有原子的属性（元素类型、坐标）
@@ -466,7 +462,7 @@ layout: default
 **常用格式**：SMD、MOL、MOL2
 
 </div>
-<div class="p-3 bg-green-50 rounded">
+<div class="hebmu-card">
 
 **蛋白质结构格式**也可用于小分子：
 - PDB 格式记录原子坐标
@@ -486,7 +482,7 @@ layout: default
 **为什么需要了解分子表面？** — 分子对接需要评估配体与靶标的形状和理化互补性
 
 <div class="grid grid-cols-3 gap-4 mt-8">
-<div class="p-3 bg-blue-50 rounded">
+<div class="hebmu-card">
 
 ### 范德华表面
 vdW Surface
@@ -494,7 +490,7 @@ vdW Surface
 - 定义分子的"硬壳"
 
 </div>
-<div class="p-3 bg-green-50 rounded">
+<div class="hebmu-card">
 
 ### 溶剂可接触表面
 Solvent-accessible
@@ -502,7 +498,7 @@ Solvent-accessible
 - 溶剂分子能触及的区域
 
 </div>
-<div class="p-3 bg-amber-50 rounded">
+<div class="hebmu-card">
 
 ### 溶剂排斥表面
 Solvent-excluded
@@ -529,7 +525,7 @@ $$\log P = \sum_{i=1}^{n} a_i \times f_i + b_i \times f_i$$
 
 <v-click>
 
-<div class="mt-3 text-sm">
+<div class="mt-3">
     
 **logP 的意义**：
 
@@ -569,7 +565,7 @@ layout: default
 | 摩尔折射率 MR | 近似代表分子体积 |
 | 范德华体积 $V_w$ | 分子体积大小 |
 
-<div class="mt-3 text-sm">
+<div class="mt-3">
 这些参数用于建立<b>定量构效关系 (QSAR)</b> 模型，预测候选药物的活性。
 </div>
 
@@ -581,7 +577,7 @@ layout: default
 
 **判断口服小分子药物成药性的经验法则** [教材 §15.2(五)]
 
-<div class="mt-4 p-4 bg-yellow-50 rounded text-lg">
+<div class="hebmu-callout hebmu-callout-key">
 
 1. 分子量 < **500** Da
 2. 脂水分配系数 logP < **5**
@@ -649,12 +645,12 @@ flowchart LR
     E --> F["排序筛选<br/>(选出最佳候选)"]
 ```
 
-<div class="mt-3 text-sm">
+<div class="mt-3">
 <b>关键假设</b>：配体与靶蛋白的结合构象越稳定（自由能越低），亲和力越高
 </div>
 
 
-<div class="mt-16 text-l color-blue-600">
+<div class="mt-16">
 我们来看一个视频，演示分子对接的基本流程
 </div>
 
@@ -669,7 +665,7 @@ layout: default
 **评价配体-靶蛋白结合亲和力的数学模型**
 
 <div class="grid grid-cols-3 gap-4 mt-4">
-<div class="p-3 bg-blue-50 rounded">
+<div class="hebmu-card">
 
 ### 基于物理化学
 Physics-based
@@ -677,7 +673,7 @@ Physics-based
 - 精度较高，计算量大
 
 </div>
-<div class="p-3 bg-green-50 rounded">
+<div class="hebmu-card">
 
 ### 基于经验
 Empirical
@@ -685,7 +681,7 @@ Empirical
 - 速度快，精度中等
 
 </div>
-<div class="p-3 bg-amber-50 rounded">
+<div class="hebmu-card">
 
 ### 基于知识
 Knowledge-based
@@ -718,7 +714,7 @@ density: compact
 | **MVD** | Molegro（已停产） | 模板对接 | 配体柔性 | 准确率高 (87%)，界面友好 |
 | **Affinity** | Accelrys/杜邦（已停更） | 蒙特卡罗 + MD 精化 | 双方柔性 | 精度高但计算量大 |
 
-<div class="mt-3 text-sm">
+<div class="mt-3">
 <b>选择建议</b>：大规模筛选用 DOCK/GOLD，精细互作分析用 AutoDock，初学者推荐 AutoDock Vina / GNINA（免费、活跃维护）
 </div>
 
@@ -744,7 +740,7 @@ flowchart LR
 4. 建立预测模型（多元回归、神经网络）
 5. 验证并预测新化合物
 
-<div class="mt-3 text-sm">
+<div class="mt-3">
 <b>3D-QSAR</b>：考虑三维结构特征的构效关系分析，如 CoMFA（比较分子场分析），是当前主流发展方向。
 </div>
 
@@ -782,7 +778,7 @@ layout: default
 
 # 第二节小结
 
-<div class="mt-4 p-4 bg-green-50 rounded">
+<div class="hebmu-callout hebmu-callout-procedure">
 
 **计算机辅助药物设计路线**：
 
@@ -790,7 +786,7 @@ layout: default
 
 </div>
 
-<div class="mt-4 p-4 bg-blue-50 rounded">
+<div class="hebmu-callout hebmu-callout-key">
 
 **关键概念**：
 - 小分子药物的三大成药性指标
@@ -801,7 +797,7 @@ layout: default
 
 </div>
 
-<div class="mt-4 text-xs">
+<div class="mt-4">
 说明: 更深入的分子对接与 QSAR 实操将在<b>药物设计学</b>课程中详细讲解。
 </div>
 
@@ -830,7 +826,7 @@ layout: default
 
 **临床现实** [教材 §15.3]：
 
-<div class="mt-2 p-4 bg-red-50 rounded">
+<div class="hebmu-callout hebmu-callout-key">
 
 - 约 **1/3** 的患者对药物治疗**无效**
 - 约 **1/6** 的患者出现不同程度的**毒副反应**
@@ -864,8 +860,8 @@ flowchart LR
     D --> E["药物效应<br/>浓度-效应关系"]
 ```
 
-<div class="grid grid-cols-2 gap-4 mt-4">
-<div class="p-3 bg-blue-50 rounded">
+<div class="hebmu-columns">
+<div class="hebmu-card">
 
 ### PK 药代动力学
 Pharmacokinetics
@@ -876,7 +872,7 @@ Pharmacokinetics
 - 即"机体对药物做了什么"
 
 </div>
-<div class="p-3 bg-green-50 rounded">
+<div class="hebmu-card">
 
 ### PD 药效动力学
 Pharmacodynamics
@@ -887,7 +883,7 @@ Pharmacodynamics
 </div>
 </div>
 
-<div class="mt-3 text-sm">
+<div class="mt-3">
 <b>PK 和 PD 均受遗传和环境因素影响</b>，其中遗传因素是主因。
 </div>
 
@@ -948,7 +944,7 @@ layout: default
 
 <v-click>
 
-<div class="mt-3 rounded p-3 bg-yellow-50 text-lg">
+<div class="hebmu-callout hebmu-callout-warning">
 <b>⚠️注意</b>：大多数病例-对照研究为<b>回顾性研究</b>，存在记忆偏倚等局限。
 </div>
 
@@ -995,7 +991,7 @@ layout: default
 
 **药物基因组 GWAS 的独特优势**：
 
-<div class="mt-2 p-3 bg-green-50 rounded text-xs">
+<div class="hebmu-callout hebmu-callout-key">
 
 严重药物不良反应的 GWAS 具有**非常高的统计效能**
 - 氟氯西林肝损伤：仅 51 例 + 282 对照
@@ -1062,7 +1058,7 @@ layout: default
 | **数据分析难度** | 低 | 中 | 高 |
 | **新基因发现** | 弱 | 强 | 最强 |
 
-<div class="mt-3 text-sm">
+<div class="mt-3">
 三种方法<b>互补</b>——实际研究中常组合使用。
 </div>
 
@@ -1076,8 +1072,8 @@ layout: default
 
 **验证分两类**：
 
-<div class="grid grid-cols-2 gap-4 mt-4">
-<div class="p-3 bg-blue-50 rounded">
+<div class="hebmu-columns">
+<div class="hebmu-card">
 
 ### 功能验证
 - 分子/细胞生物学方法
@@ -1085,7 +1081,7 @@ layout: default
 - 例：构建不同基因型细胞 → 比较药物反应
 
 </div>
-<div class="p-3 bg-green-50 rounded">
+<div class="hebmu-card">
 
 ### 临床试验验证
 - RCT（随机对照试验）
@@ -1116,7 +1112,7 @@ layout: default
 
 <v-clicks>
 
-<div class="mt-2 p-3 bg-green-50 rounded">
+<div class="hebmu-card">
 
 1. **发现新靶点**
    - 药物基因组研究发现与药效/毒性相关的基因/蛋白
@@ -1124,7 +1120,7 @@ layout: default
    
 </div>
 
-<div class="mt-2 p-3 bg-blue-50 rounded">
+<div class="hebmu-card">
 
 2. **筛选安全性和有效性的遗传因素**
    - 查明 PK/PD 相关基因 → 指导个体化应用
@@ -1148,7 +1144,7 @@ layout: default
 
 <v-clicks>
 
-<div class="mt-2 p-3 bg-amber-50 rounded">
+<div class="hebmu-card">
 
 3. **评估不同基因型的 PK 参数**
    - 按基因型预估用药剂量
@@ -1156,7 +1152,7 @@ layout: default
 
 </div>
 
-<div class="mt-2 p-3 bg-pink-50 rounded">
+<div class="hebmu-card">
 
 4. **挽救"失败"药物**
    - 分析不良反应的遗传机制 → 特定人群重新应用
@@ -1185,9 +1181,8 @@ density: compact
 | 匹伐他汀 | 4 | 2 | 1 | 1–4 |
 | 氟伐他汀 | 80 | 80 | 80 | 20–80 |
 
-<div class="mt-3 text-sm">
 <b>启示</b>：同一药物，不同基因型患者需要的剂量可相差<b>4 倍</b> [教材表15-2]
-</div>
+
 
 ---
 layout: default
@@ -1205,7 +1200,7 @@ layout: default
 | VIP 基因 | 42 个 |
 | 个体化用药指南 | 218 个 |
 
-<div class="text-xs opacity-70 mt-2">数据为 ClinPGx 实时统计（2026-06；PharmGKB 已整合为 ClinPGx，pharmgkb.org → clinpgx.org）。教材 §15.4(一) 中基因计数（26960）明显偏高，已更正；疾病数 ClinPGx 未单独统计，已移除该行；VIP 基因为原值。</div>
+<div class="hebmu-source">数据为 ClinPGx 实时统计（2026-06；PharmGKB 已整合为 ClinPGx，pharmgkb.org → clinpgx.org）。教材 §15.4(一) 中基因计数（26960）明显偏高，已更正；疾病数 ClinPGx 未单独统计，已移除该行；VIP 基因为原值。</div>
 
 **五大数据类别**：临床结局 (CO)、PD、PK、分子/细胞功能分析 (MCFA)、基因型 (GT)
 
@@ -1237,14 +1232,13 @@ layout: default
 | 拷贝数变异 | 约 1207190 个 |
 | 样本 | 1566365 个 |
 
-<div class="text-xs opacity-70 mt-2">数据为 COSMIC v104（2026-05，cancer.sanger.ac.uk）。CGC（Cancer Gene Census）为人工策展癌症基因目录；拷贝数变异为近年停止更新的历史统计。教材 §15.4(四) 历史数据已据此更新。</div>
+<div class="hebmu-source">数据为 COSMIC v104（2026-05，cancer.sanger.ac.uk）。CGC（Cancer Gene Census）为人工策展癌症基因目录；拷贝数变异为近年停止更新的历史统计。教材 §15.4(四) 历史数据已据此更新。</div>
 
 - 肿瘤体细胞突变筛查是**肿瘤药物基因组学**的重要方向
 - 可按基因名、突变类型检索
 
-<div class="mt-3 rounded p-3 bg-yellow-50 text-sm">
 此外还有<b>DMET</b> 和 <b>VeraCode ADME</b> 基因分型芯片，专门用于药物基因组学研究的高通量基因分型。
-</div>
+
 
 ---
 layout: figure
@@ -1259,7 +1253,7 @@ layout: default
 
 # 第三节小结
 
-<div class="mt-4 p-4 bg-blue-50 rounded">
+<div class="hebmu-callout hebmu-callout-key">
 
 **药物基因组学的核心逻辑**：
 
@@ -1267,13 +1261,13 @@ layout: default
 
 </div>
 
-<div class="mt-4 p-4 bg-green-50 rounded">
+<div class="hebmu-callout hebmu-callout-key">
 
 **关键数据库**：PharmGKB、ClinVar、COSMIC、FDA
 
 </div>
 
-<div class ="mt-4 p-4 bg-yellow-50 rounded">
+<div class="hebmu-callout hebmu-callout-key">
 
 **关键方法**：
 - 候选基因 / GWAS / WGS 三种发现策略（互补）
@@ -1322,7 +1316,7 @@ flowchart LR
 
 <v-click>
 
-<div class="mt-3 bg-red-50 rounded p-3 text-lg">
+<div class="hebmu-callout hebmu-callout-key">
 <b>关键</b>：先检测靶点，再决定是否用药——精准医学的典型范式。
 </div>
 
@@ -1367,7 +1361,7 @@ layout: default
 - 多数细胞红色信号 > 2 → HER2 扩增阳性
 - 阳性患者适用曲妥珠单抗治疗
 
-<div class="mt-3 bg-red-50 rounded p-3 text-lg">
+<div class="hebmu-callout hebmu-callout-key">
 <b>要点</b>：只有 HER2 阳性的患者才能从曲妥珠单抗治疗中获益——这是药物基因组学指导临床用药的经典案例。
 </div>
 
@@ -1391,7 +1385,7 @@ layout: default
 | T790M+其他 / G719X / L861Q / S768I | 7% | 有限敏感 |
 | 仅 T790M / 20 号插入 / 其他 | 3% | 不敏感 |
 
-<div class="mt-3 bg-yellow-50 rounded p-3 text-lg">
+<div class="hebmu-callout hebmu-callout-key">
 
 <b>人群差异</b>：欧美非小细胞肺癌患者 EGFR 突变率 ~10%，东亚人群 **30–50%** → 东亚患者更应进行 EGFR 检测
 
@@ -1458,7 +1452,7 @@ layout: default
 
 **华法林** — 广泛使用的抗凝药，治疗窗极窄 [教材 §15.5(三)]
 
-<div class="mt-2 p-3 bg-red-50 rounded text-sm">
+<div class="hebmu-callout hebmu-callout-key">
 
 - 1990–2000 年 FDA 统计：华法林是导致严重不良事件最多的 10 种药物之一
 - 同一种族个体间剂量需求可差 **100 倍以上**
@@ -1498,7 +1492,7 @@ density: compact
 | CYP2C9 *1/*3 | -0.9357 | |
 | CYP2C9 *3/*3 | -2.3312 | |
 
-<div class="mt-3 text-sm">
+<div class="mt-3">
 
 预测公式：$\sqrt{\text{周剂量}} = 5.6044 - 0.2614 \times \text{年龄分级} + 0.0087 \times \text{身高} + \cdots$
 <br/>基因导向预测公式在<b>高剂量</b>和<b>低剂量</b>患者中优势尤为明显。
@@ -1523,7 +1517,7 @@ layout: default
 
 <v-click>
 
-<div class="mt-4 p-4 bg-yellow-50 rounded">
+<div class="hebmu-callout hebmu-callout-key">
 
 **药物基因组学的终极目标**：
 
@@ -1564,7 +1558,7 @@ flowchart LR
     C --> D["个体化治疗<br/>精准医学"]
 ```
 
-<div class="mt-3 bg-red-50 rounded p-3 text-lg">
+<div class="hebmu-callout hebmu-callout-key">
 
 **五大核心要点**：
 1. 药物靶标是药物研发的起点，6 大蛋白质家族是主要靶点类型

@@ -157,7 +157,7 @@ graph TD
     I --> G
 ```
 
-<div class="mt-3 text-sm">
+<div class="mt-3">
 <b>关键</b>：一个子节点可以有多个父节点（如"DNA 修复"同时属于"DNA 代谢过程"和"对 DNA 损伤的响应"）——比简单的层级树更灵活
 </div>
 
@@ -170,7 +170,7 @@ layout: default
 # GO 三大命名空间 (Namespaces)
 
 <div class="grid grid-cols-3 gap-4">
-<div class="p-4 bg-blue-50 rounded">
+<div class="hebmu-card">
 
 ### BP
 **Biological Process**
@@ -184,7 +184,7 @@ layout: default
 - 免疫应答
 
 </div>
-<div class="p-4 bg-green-50 rounded">
+<div class="hebmu-card">
 
 ### MF
 **Molecular Function**
@@ -198,7 +198,7 @@ layout: default
 - 蛋白质结合
 
 </div>
-<div class="p-4 bg-amber-50 rounded">
+<div class="hebmu-card">
 
 ### CC
 **Cellular Component**
@@ -214,7 +214,7 @@ layout: default
 </div>
 </div>
 
-<div class="mt-4 text-sm">
+<div class="mt-4">
 <b>三个命名空间独立</b>——同一基因可在 BP、MF、CC 中同时有注释
 </div>
 
@@ -253,9 +253,8 @@ layout: default
 | positively_regulates | PR | 正调控 | "激活 T 细胞增殖" PR "T 细胞增殖" |
 | negatively_regulates | NR | 负调控 | "抑制细胞增殖" NR "细胞增殖" |
 
-<div class="mt-3 text-sm">
 <b>关系方向</b>：子节点 → 父节点（与 DAG 的"有向"一致）。<b>注意</b>：is_a 和 part_of 支持注释向上继承，regulates 系关系不自动继承。完整 GO 还包含 has_part、occurs_in 等关系。[教材 Table 11-2]
-</div>
+
 
 ---
 layout: default
@@ -274,7 +273,7 @@ layout: default
 | **ISS** | Inferred from Sequence/Structural Similarity | ⭐⭐ 中 |
 | **IEA** | Inferred from Electronic Annotation（电子注释） | ⭐ 低 |
 
-<div class="mt-3 p-3 bg-amber-50 rounded text-sm">
+<div class="hebmu-callout hebmu-callout-warning">
 <b>⚠️ 注意</b>：IEA 为自动推断注释，未逐条人工审阅；在 GOA 全库中占比超过 99%。使用时应结合证据代码和研究问题谨慎筛选，做严谨研究时优先关注<b>非 IEA</b> 注释。
 </div>
 
@@ -308,7 +307,7 @@ layout: default
 
 </div>
 
-<div class="mt-3 text-sm">
+<div class="mt-3">
 <b>重点掌握</b>：PATHWAY（通路图）、KO（直系同源功能群）、GENES（基因信息）
 </div>
 
@@ -332,7 +331,7 @@ density: compact
 | 化学信息 | KEGG COMPOUND | C+5位数字 | C00031（葡萄糖） |
 | 健康信息 | KEGG DISEASE | H+5位数字 | H00026 |
 
-<div class="mt-3 text-sm">
+<div class="mt-3">
 <b>物种代码</b>：hsa = Homo sapiens（人类），mmu = Mus musculus（小鼠），dre = Danio rerio（斑马鱼）
 </div>
 
@@ -357,7 +356,7 @@ graph LR
     B --> F
 ```
 
-<div class="mt-3 text-sm">
+<div class="mt-3">
 <b>设计思路</b>：一张参考通路图（用 KO 号）→ 替换为物种基因标识 → 自动生成物种特异性通路
 </div>
 
@@ -371,8 +370,6 @@ layout: default
 
 **以 hsa00010 糖酵解/糖异生通路为例**
 
-<div class="p-3 bg-slate-50 rounded text-sm">
-
 | 图形元素 | 含义 |
 |---------|------|
 | **矩形方框** | 基因/酶（方框内为 EC 编号或基因名） |
@@ -381,9 +378,8 @@ layout: default
 | **红色高亮方框** | 你查询的基因（如 PGM1）编码的酶 |
 | **绿色节点** | 物种特异性通路中的基因 |
 
-</div>
 
-<div class="mt-3 text-sm">
+<div class="mt-3">
 PGM1（磷酸葡萄糖变位酶）催化葡萄糖-1-磷酸 ↔ 葡萄糖-6-磷酸 的转化，在糖酵解通路中清晰可见
 </div>
 
@@ -450,7 +446,7 @@ layout: default
 
 <v-click>
 
-<div class="mt-4 p-4 bg-green-50 rounded">
+<div class="hebmu-callout hebmu-callout-key">
 <b>一句话总结</b>：富集分析 = 自动找出你的基因集在哪些功能上"扎堆"
 </div>
 
@@ -496,7 +492,7 @@ layout: default
 
 **问题**：GO 有几万个 term → 几万次统计检验
 
-<div class="mt-4 p-4 bg-red-50 rounded">
+<div class="hebmu-callout hebmu-callout-key">
 
 假设每次检验 p < 0.05：
 
@@ -517,7 +513,7 @@ layout: default
 
 <v-click>
 
-<div class="mt-3 p-3 bg-green-50 rounded text-sm">
+<div class="hebmu-callout hebmu-callout-key">
 <b>实际操作</b>：看结果表中的 p.adjust 列，而非 pvalue 列。clusterProfiler 默认用 BH 法校正。
 </div>
 
@@ -531,7 +527,7 @@ layout: default
 
 # ORA vs. GSEA
 
-<div class="grid grid-cols-2 gap-7 mt-4">
+<div class="hebmu-columns">
 
 <div>
 
@@ -552,7 +548,7 @@ layout: default
 - **ES**：Enrichment Score（集中程度）
 - **NES**：Normalized ES（标准化后）
 
-<div class="mt-3 text-sm">
+<div class="mt-3">
 <b>关系</b>：两种方法<b>互补</b>——实际研究中经常两种都做
 </div>
 
@@ -620,7 +616,7 @@ layout: default
 
 **Step 5**：查看证据代码（IDA, IPI, IEA 等）
 
-<div class="mt-4 text-sm">
+<div class="hebmu-callout hebmu-callout-warning">
 <b>注意</b>：IEA (电子注释) 在 GOA 全库中占比 > 99%，未逐条人工审阅，使用时应结合证据代码谨慎筛选。
 </div>
 
@@ -644,7 +640,7 @@ layout: default
 
 **Step 5**：使用物种下拉框切换查看其他物种
 
-<div class="mt-4 text-sm">
+<div class="mt-4">
 流程：<b>搜索基因 → 查看信息 → 点击通路 → 读懂通路图</b>
 </div>
 
@@ -702,7 +698,7 @@ ego <- enrichGO(gene          = genes,
                 qvalueCutoff  = 0.05)
 ```
 
-<div class="mt-3 text-sm">
+<div class="mt-3">
 <b>关键参数</b>：`ont = "BP"` — 分析 BP 命名空间；`pAdjustMethod = "BH"` — FDR 校正方法；`pvalueCutoff = 0.05` 同时筛选原始 p 值和 p.adjust，`qvalueCutoff = 0.05` 单独筛选 qvalue
 <br/><b>⚠️ 提示</b>：本演示为简化版，未指定背景基因集 (universe)。正式分析中，背景应设为"所有被检测且有机会进入差异基因列表的基因"，而非默认的全数据库基因。
 </div>
@@ -773,7 +769,7 @@ ekegg <- enrichKEGG(gene         = gene_ids$ENTREZID,
 dotplot(ekegg, showCategory = 20)
 ```
 
-<div class="mt-3 text-sm">
+<div class="hebmu-callout hebmu-callout-warning">
 <b>注意</b>：KEGG 分析需要 ENTREZID（非 SYMBOL），先用 `bitr()` 做转换。
 </div>
 
@@ -783,7 +779,7 @@ layout: default
 
 # 基因功能注释与富集分析完整流程总结
 
-<div class="mt-5 p-5 bg-yellow-50 rounded text-lg font-bold">
+<div class="hebmu-callout hebmu-callout-procedure">
 AmiGO/QuickGO 查询 → KEGG 查询 → clusterProfiler GO 富集 → KEGG 富集 → 结果解读
 </div>
 
@@ -793,7 +789,7 @@ AmiGO/QuickGO 查询 → KEGG 查询 → clusterProfiler GO 富集 → KEGG 富�
 
 **下游**：结果解读——从显著富集的 term 中提取生物学故事
 
-<div class="mt-3 text-sm">
+<div class="mt-3">
 💡 课后按课堂演示的流程和提供的基因列表自行练习。
 </div>
 
@@ -841,7 +837,7 @@ layout: default
 | **机器学习** (特征) | 序列特征 (domain, motif) → GO term | 大规模自动注释 |
 | **网络传播** (PPI) | 邻居功能 → 目标基因功能 | 有 PPI 网络数据 |
 
-<div class="mt-4 p-4 bg-green-50 rounded text-sm">
+<div class="hebmu-callout hebmu-callout-key">
 <b>网络传播方法</b>与第十章的"牵连原则 (guilt-by-association)"直接相关：PPI 网络中，未知功能蛋白的邻居多数是"DNA 修复"相关 → 该蛋白也大概率参与 DNA 修复。
 </div>
 
@@ -867,7 +863,7 @@ flowchart LR
 - **DeepGOPlus**：深度学习方法，直接从序列预测功能
 - **CAFA** (Critical Assessment of protein Function Annotation)：蛋白质功能自动注释国际竞赛
 
-<div class="mt-3 text-sm">
+<div class="mt-3">
 功能预测方法发展迅速，详细内容在后续课程和研究生阶段深入学习。
 </div>
 
@@ -877,7 +873,7 @@ layout: default
 
 # 本章总结
 
-<div class="grid grid-cols-2 gap-7 mt-4">
+<div class="hebmu-columns">
 
 <div>
 

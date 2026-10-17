@@ -110,7 +110,7 @@ layout: default
 
 # 为什么研究网络？
 
-<div class="grid grid-cols-2 gap-7 mt-4">
+<div class="hebmu-columns">
 
 <div>
 
@@ -163,7 +163,7 @@ layout: default
 
 # 有向网络 (Directed Network)
 
-<div class="grid grid-cols-2 gap-8 items-center">
+<div class="hebmu-columns is-centered">
 <div class="text-center">
 
 ```mermaid
@@ -180,7 +180,7 @@ graph LR
 - 例：**转录因子 (TF)** 调控靶基因表达
 - $E = \{(u, v)\}$，$(u,v) \neq (v,u)$
 
-<div class="mt-4 text-sm opacity-70">
+<div class="mt-4">
 为什么转录调控网络是有向的？——TF 结合到靶基因启动子上调控表达，是"谁调控谁"的关系
 </div>
 
@@ -195,7 +195,7 @@ layout: default
 
 # 无向网络 (Undirected Network)
 
-<div class="grid grid-cols-2 gap-8 items-center">
+<div class="hebmu-columns is-centered">
 <div class="text-center">
 
 ```mermaid
@@ -223,7 +223,7 @@ layout: default
 
 # 加权与等权网络 (Weighted & Unweighted)
 
-<div class="grid grid-cols-2 gap-8 items-center">
+<div class="hebmu-columns is-centered">
 <div class="text-center">
 
 ```mermaid
@@ -233,7 +233,7 @@ graph LR
     A ---|0.30| C
 ```
 
-<div class="text-xs opacity-60 mt-2">
+<div class="mt-2">
 STRING 置信度评分示例
 </div>
 
@@ -263,7 +263,7 @@ layout: default
 
 # 二分网络 (Bipartite Network)
 
-<div class="grid grid-cols-2 gap-8 items-center">
+<div class="hebmu-columns is-centered">
 <div class="text-center">
 
 ```mermaid
@@ -290,7 +290,7 @@ graph LR
 - 边**只在两个集合之间**建立，集合内部没有边
 - $V = V_1 \cup V_2$，边只在 $V_1$-$V_2$ 之间
 
-<div class="mt-4 text-sm opacity-70">
+<div class="mt-4">
 经典案例：Goh et al. 2007, PNAS — "The Human Disease Network"（疾病-基因关联网络），揭示看似不相关的疾病可能共享同一个致病基因
 </div>
 
@@ -350,7 +350,7 @@ layout: default
 - 识别功能复合物和信号通路
 - 疾病基因优先级排序
 
-<div class="text-sm mt-2 p-2 bg-amber-50 rounded">
+<div class="hebmu-callout hebmu-callout-key">
 💡 STRING 的边 = PPI 的物理/遗传互作 + 计算预测的<b>功能关联</b>（共表达、基因组共现、文本挖掘等）。换言之，STRING 是<b>蛋白质功能关联网络 (Protein Association Network)</b>，比 PPI 更宽泛。详见第四节。
 </div>
 
@@ -501,7 +501,7 @@ density: compact
 
 每行一条边：`节点A  节点B  权重`
 
-<div class="grid grid-cols-2 gap-7 mt-4">
+<div class="hebmu-columns">
 
 <div>
 
@@ -512,7 +512,7 @@ TP53   ATM      0.89
 MDM2   ATM      0.72
 ```
 
-<div class="text-sm mt-2">
+<div class="mt-2">
 Cytoscape、NetworkX、R igraph 均可直接导入<br/>
 STRING 导出的 TSV 即为此格式
 </div>
@@ -592,7 +592,7 @@ layout: default
 
 # 度与 Hub 节点
 
-<div class="grid grid-cols-2 gap-7 mt-4">
+<div class="hebmu-columns">
 
 <div>
 
@@ -607,7 +607,7 @@ graph LR
     B --- C
 ```
 
-<div class="text-xs mt-1">
+<div class="mt-1">
 
 节点 A 的度 $k_A = 4$（hub）
 
@@ -627,7 +627,7 @@ graph LR
     A --> D
 ```
 
-<div class="text-xs mt-1">
+<div class="mt-1">
 
 节点 A：入度 = 2，出度 = 2
 
@@ -647,7 +647,7 @@ layout: default
 
 ## **度分布 $P(k)$**：随机选择一个节点，其度值为 $k$ 的概率
 
-<div class="grid grid-cols-2 gap-7 mt-4">
+<div class="hebmu-columns">
 
 <div>
 
@@ -682,17 +682,14 @@ layout: default
 </div>
 
 
-<div class="mt-4 p-4 bg-slate-50 rounded text-sm">
-
 | 网络类型 | 度分布 | 分布形态 | 典型 $\gamma$ | 例子 |
 |---------|--------|---------|-------------|------|
 | 随机网络 (ER) | 泊松分布 $P(k) \approx e^{-\langle k \rangle}\frac{\langle k \rangle^k}{k!}$ | 钟形，峰值在 $\langle k \rangle$ | — | 随机连接模型 |
 | 无标度网络 (BA) | 幂律分布 $P(k) \sim k^{-\gamma}$ | 长尾，少数 hub | $2 < \gamma < 3$ | PPI 网络、互联网 |
 | 层次网络 | 幂律 + 指数截断 | 模块化 hub | 可变 | 代谢网络 |
 
-</div>
 
-<div class="mt-3 p-3 bg-amber-50 rounded text-sm">
+<div class="hebmu-callout hebmu-callout-warning">
 <b>⚠️ 注意</b>：PPI 网络中观察到的无标度特征可能部分源于<b>诱饵-猎物 (bait-prey) 实验模式的采样偏差</b>以及目前数据资源尚不完整。解读度分布时需结合样本规模、数据来源和拟合质量综合判断。
 </div>
 
@@ -752,7 +749,7 @@ $$P(k) \sim k^{-\gamma}, \quad \gamma \text{ 通常在 } 2 \sim 3 \text{ 之间}
 1. **增长 (Growth)**：网络持续添加新节点
 2. **优先连接 (Preferential Attachment)**：新节点倾向连接高度节点 → "富者愈富"
 
-<div class="mt-3 text-sm">
+<div class="mt-3">
 <b>进化解释</b>：<b>基因复制假说</b>——细胞分裂时基因被复制，复制产生的蛋白与相同的互作伙伴结合。高度连接的蛋白更可能与复制基因产物发生互作，从而获得额外的连接——又是"富者愈富"。
 </div>
 
@@ -767,7 +764,7 @@ $$P(k) \sim k^{-\gamma}, \quad \gamma \text{ 通常在 } 2 \sim 3 \text{ 之间}
 
 <v-click>
 
-<div class="mt-4 text-sm">
+<div class="mt-4">
 <b>临床启示</b>：疾病相关的 hub 基因是潜在的候选药物靶点，但靶向 hub 可能产生广泛副作用，需谨慎评估安全性。
 </div>
 
@@ -803,7 +800,7 @@ layout: default
 
 **核心思想**：模块 + 无标度 → 层次化结构
 
-<div class="grid grid-cols-2 gap-7 mt-4">
+<div class="hebmu-columns">
 
 <div>
 
@@ -827,7 +824,7 @@ layout: default
 
 大部分真实生物网络（代谢、PPI、蛋白质结构域）同时具有**模块性**、**无标度性**和**层次化**
 
-<div class="mt-3 text-sm p-3 bg-blue-50 rounded">
+<div class="hebmu-callout hebmu-callout-key">
 <b>直觉</b>：hub 节点连接不同的功能模块，因此虽然度很高，但邻居之间互连的比例（聚类系数）反而低。这正是层次网络的标志。
 </div>
 
@@ -886,7 +883,7 @@ density: compact
 
 **无向网络模序**：
 
-<div class="mt-3 p-3 bg-slate-50 rounded text-sm">
+<div class="hebmu-card">
 <b>全连接集 (Clique)</b>：任意两点都有边连接的子图。包含 n 个节点的全连接集称为 n-全连接集（教材 Fig 10-6）。是 CFinder 等模块检测算法的基础。
 </div>
 
@@ -898,7 +895,7 @@ density: compact
 
 # 生物网络的动态性 (Network Dynamics)
 
-<div class="p-4 bg-blue-50 rounded border-l-4 border-blue-400">
+<div class="hebmu-callout hebmu-callout-key">
 
 **生物网络具有时空特异性——这是基本属性而非缺陷**（教材 §10.3.四）：
 
@@ -909,11 +906,11 @@ density: compact
 
 </div>
 
-<div class="mt-4 text-sm">
+<div class="mt-4">
 <b>启示</b>：时空特异性使我们能够构建条件特异的网络，更准确地揭示特定生理/病理状态下的分子机制。解读结果时务必注明数据来源和条件背景。
 </div>
 
-<div class="mt-3 text-sm p-3 bg-green-50 rounded">
+<div class="hebmu-callout hebmu-callout-check">
 <b>思考</b>：如何从动态数据中重构网络？→ 第五节将回答这个问题。
 </div>
 
@@ -934,7 +931,7 @@ density: compact
 | 模块 | 内密外疏 | 兴趣小组 | 功能单元 |
 | 模序 | 过代表的微模式 | 反复出现的合作模式 | 调控逻辑单元 |
 
-<div class="mt-4 p-4 bg-blue-50 rounded">
+<div class="hebmu-callout hebmu-callout-check">
 <b>快速检查</b>：一个蛋白与 100 个蛋白互作，但邻居之间几乎不互连——这说明什么？这与层次网络有什么关系？
 </div>
 
@@ -996,8 +993,6 @@ density: compact
 
 覆盖 **12,535 物种**，约 5930 万蛋白、超过 200 亿条互作关系（STRING v12.0，2025）
 
-<div class="text-xs">
-
 | 证据类型 | 说明 | 权重 |
 |---------|------|------|
 | 实验验证 (Experiments) | Y2H, Co-IP 等小规模和高通量实验 | 高 |
@@ -1008,9 +1003,8 @@ density: compact
 | 基因共现 (Co-occurrence) | 不同物种基因组中基因出现/消失的共变模式，又称系统发育谱 (Phylogenetic Profile) | 中 |
 | 融合事件 (Gene Fusion) | 基因融合事件的证据 | 低-中 |
 
-</div>
 
-<div class="text-xs opacity-70 mt-2">基因组上下文证据（邻域/共现/融合）对原核生物最有效，对真核生物较弱。</div>
+<div class="mt-2">基因组上下文证据（邻域/共现/融合）对原核生物最有效，对真核生物较弱。</div>
 
 ---
 layout: default
@@ -1018,12 +1012,12 @@ density: compact
 ---
 
 # STRING 数据库详解
-<div class="mt-3 p-3 bg-red-50 rounded">
+<div class="hebmu-callout hebmu-callout-warning">
 <b>⚠️ 注意</b>：STRING 默认提供 full network（功能关联网络），其中的 physical subnetwork 才更接近狭义 PPI。STRING 边 ≠ 一定是物理相互作用——部分关联为<b>预测的功能关联</b>。使用时应关注证据类型与置信度评分。
 </div>
 
 
-<div class="mt-3 p-3 bg-blue-50 rounded">
+<div class="hebmu-callout hebmu-callout-key">
 <b>PPI 数据可靠性评估</b>（教材 §10.4.三(一)）：<br>
 1. 小规模实验（Co-IP 阳性）= <b>金标准</b> <br>
 2. 高通量互作需多条独立证据支持 <br>
@@ -1102,7 +1096,7 @@ density: compact
 
 # PPI 网络分析流程总结
 
-<div class="mt-5 p-5 bg-yellow-50 rounded text-lg font-bold">
+<div class="hebmu-callout hebmu-callout-procedure">
 STRING 查询 → 调整参数 → 导出 TSV → Cytoscape 导入 → 显示标签
 → 计算 Degree → 按 Degree 着色/调大小 → 调整布局 → 美化 → 导出图片
 </div>
@@ -1113,9 +1107,8 @@ STRING 查询 → 调整参数 → 导出 TSV → Cytoscape 导入 → 显示标
 
 **下游**：功能解读——识别模块、做功能富集分析（第十一章系统学习）
 
-<div class="mt-3 p-3 bg-green-50 rounded text-sm">
 💡 详细的操作步骤在课后 PDF 指南中，大家按指南自己练习。Cytoscape 插件（MCODE、cytoHubba、stringApp）可在课后自行探索。
-</div>
+
 
 ---
 layout: section
@@ -1136,7 +1129,7 @@ sectionTitleEn: 'Network Reconstruction Overview'
 | **高通量实验整合** | Y2H, Co-IP, ChIP-seq 直接检测 | 可设计实验的互作验证 |
 | **共表达分析** | 基因表达相关性推断功能关系 | 转录组数据驱动的网络构建 |
 
-<div class="mt-4 p-4 bg-green-50 rounded text-lg">
+<div class="hebmu-callout hebmu-callout-key">
 网络重构是连接"网络动态性"与"实际应用"的桥梁——从动态、条件特异的数据中构建准确的生物网络。
 </div>
 
@@ -1146,7 +1139,7 @@ layout: default
 
 # 共表达网络与 WGCNA
 
-<div class="grid grid-cols-2 gap-7 mt-4">
+<div class="hebmu-columns">
 
 <div>
 
@@ -1162,7 +1155,7 @@ layout: default
 - **软阈值 (Soft Thresholding)** — 用幂函数 $a_{ij} = |r_{ij}|^\beta$ 将相关性转换为连续邻接权重，不硬性截断
 - 识别**共表达模块** → 与**外部性状**关联（如疾病状态）
 
-<div class="mt-2 text-sm opacity-70">
+<div class="mt-2">
 WGCNA 在肿瘤转录组研究中非常常用，详细方法在后续课程和研究生阶段深入学习。
 </div>
 
@@ -1184,7 +1177,7 @@ WGCNA 在肿瘤转录组研究中非常常用，详细方法在后续课程和�
 - **优势**：直观易懂，揭示调控逻辑
 - **局限**：只捕获二元状态，忽略表达量连续变化
 
-<div class="mt-4 text-sm">
+<div class="mt-4">
 网络重构方法很多，今天只是概览。WGCNA 和布尔网络的详细内容，在后续课程和研究生阶段会深入学习。
 </div>
 
@@ -1194,7 +1187,7 @@ layout: default
 
 # 本章总结
 
-<div class="grid grid-cols-2 gap-7 mt-4">
+<div class="hebmu-columns">
 
 <div>
 
