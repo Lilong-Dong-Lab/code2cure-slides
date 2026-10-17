@@ -5,19 +5,42 @@
   font-size: 24px;
 }
 
+.slidev-layout.keynote-cover .cover-title h1,
+.slidev-layout.keynote-cover .cover-title h2,
+.slidev-layout .keynote-slide-title,
+.slidev-layout.keynote-density-compact .keynote-slide-title,
+.slidev-layout.keynote-default .keynote-stage h1,
+.slidev-layout.keynote-density-compact.keynote-default .keynote-stage h1 {
+  font-family:
+    Arial, "Helvetica Neue", "PingFang SC", "Noto Sans SC", "Microsoft YaHei",
+    sans-serif;
+}
+
 .slidev-layout.keynote-cover .cover-title h1 {
   font-size: 60px;
 }
 
 .slidev-layout .keynote-slide-title,
-.slidev-layout.keynote-default .keynote-stage h1 {
+.slidev-layout.keynote-density-compact .keynote-slide-title,
+.slidev-layout.keynote-default .keynote-stage h1,
+.slidev-layout.keynote-density-compact.keynote-default .keynote-stage h1 {
   font-size: 40px;
 }
 
-.slidev-layout.keynote-end .end-message h1,
-.slidev-layout.keynote-end .end-message p {
-  font-size: 48px;
-  color: var(--hebmu-primary);
+.slidev-layout .keynote-stage p,
+.slidev-layout .keynote-stage li,
+.slidev-layout .keynote-stage blockquote,
+.slidev-layout.keynote-default .keynote-stage > ul,
+.slidev-layout.keynote-default .keynote-stage > ol,
+.slidev-layout.keynote-default .keynote-stage > ul li,
+.slidev-layout.keynote-default .keynote-stage > ol li,
+.slidev-layout.keynote-density-compact .keynote-stage p,
+.slidev-layout.keynote-density-compact .keynote-stage li,
+.slidev-layout.keynote-density-compact.keynote-default .keynote-stage > ul,
+.slidev-layout.keynote-density-compact.keynote-default .keynote-stage > ol,
+.slidev-layout.keynote-density-compact.keynote-default .keynote-stage > ul li,
+.slidev-layout.keynote-density-compact.keynote-default .keynote-stage > ol li {
+  font-size: 24px;
 }
 
 .medbio-click-proxy {

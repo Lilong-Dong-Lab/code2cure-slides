@@ -7,7 +7,7 @@
       v-click
       aria-hidden="true"
     />
-    <div ref="row" class="stages">
+    <div ref="row" class="stages" :class="{ 'is-flip': motion === 'flip' }">
       <div
         v-for="(stage, index) in stages"
         :key="stage.id"
@@ -90,6 +90,10 @@ watch(
   color: var(--hebmu-primary);
   font-size: 24px;
   font-weight: 700;
+}
+
+.stages.is-flip .medbio-stage.is-active {
+  grid-column: 1 / -1;
 }
 
 .medbio-stage.is-active {
