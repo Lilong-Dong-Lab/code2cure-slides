@@ -294,17 +294,3 @@
   border-radius: 16px;
   font-size: 28px;
 }
-
-/* TOC: photo covers the circles and bands. The dark outer wave stays in front. */
-.slidev-layout .keynote-content-photo {
-  z-index: 7;
-  clip-path: ellipse(320px 575px at 50px 385px);
-}
-
-.slidev-layout .keynote-content-ribbon {
-  z-index: 8;
-}
-
-.slidev-layout .keynote-content-photo img {
-  width: 100%;
-}
