@@ -126,7 +126,7 @@ contentItems:
 
 # 生信工具总览 ｜分类框架
 
-生信资源可以分为**三个层次**。
+<p class="tool-tree-lead">生信资源可以分为<strong>三个层次</strong>。</p>
 
 <ToolTree />
 
