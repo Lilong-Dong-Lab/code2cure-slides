@@ -15,24 +15,8 @@ drawings:
 transition: slide-left
 mdc: true
 presenter: true
-aspectRatio: 4/3
-canvasWidth: 1024
-colorSchema: light
-fonts:
-  sans: 'PingFang SC'
-  mono: 'Fira Code'
 themeConfig:
-  paginationX: 'r'
-  paginationY: 'b'
   paginationPagesDisabled: [1]
-  footerMode: 'compact'
-  logoUrl: '/hebmu-logo.png'
-  coverBackgroundUrl: '/campus-cover.jpeg'
-  endBackgroundUrl: '/campus-end.jpeg'
-  footerDepartment: '河北医科大学 基础医学院 医药信息学教研室'
-  footerAuthor: '董立龙'
-  footerEmail: 'lilong.dong@hebmu.edu.cn'
-  footerWechat: 'donglilonghugo'
 defaults:
   layout: default
 htmlAttrs:
