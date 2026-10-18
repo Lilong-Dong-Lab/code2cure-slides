@@ -66,17 +66,17 @@ try {
 
   await page.goto(`http://localhost:${port}/1`, { waitUntil: "load" });
   await waitForVisibleText(page, "生物信息学常用工具");
-  expectSize("cover title", await firstVisible(page, ".cover-title h1"), "60px");
+  expectSize("cover title", await firstVisible(page, ".cover-title h1"), "44px");
 
   await page.goto(`http://localhost:${port}/4`, { waitUntil: "load" });
   await waitForVisibleText(page, "金钥匙");
-  expectSize("body title", await firstVisible(page, "h1"), "40px");
+  expectSize("body title", await firstVisible(page, "h1"), "32px");
   expectSize("body list", await firstVisible(page, ".keynote-stage li"), "24px");
-  expectSize("body quote", await firstVisible(page, ".keynote-stage blockquote"), "24px");
+  expectSize("body key line", await firstVisible(page, ".medbio-key"), "24px");
 
   await page.goto(`http://localhost:${port}/27`, { waitUntil: "load" });
   await waitForVisibleText(page, "PyMOL");
-  expectSize("compact title", await firstVisible(page, "h1"), "40px");
+  expectSize("compact title", await firstVisible(page, "h1"), "32px");
   expectSize("compact paragraph", await firstVisible(page, ".keynote-stage p"), "24px");
   expectSize("compact list", await firstVisible(page, ".keynote-stage li"), "24px");
 

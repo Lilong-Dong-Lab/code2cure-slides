@@ -18,7 +18,7 @@ gsap.registerPlugin(SplitText);
 const props = withDefaults(defineProps<{ at?: number }>(), { at: 1 });
 const root = ref<HTMLElement | null>(null);
 const { clicks } = useNav();
-let tween: gsap.core.Tween | null = null;
+let tween: gsap.core.Animation | null = null;
 
 function sync(step: number) {
   if (!tween) return;
@@ -30,12 +30,20 @@ onMounted(async () => {
   await document.fonts.ready;
   if (!root.value) return;
   const split = SplitText.create(root.value, { type: "chars", aria: "auto" });
-  tween = gsap.from(split.chars, {
+  const lines = [...root.value.querySelectorAll("li, blockquote")];
+  const step = 0.012;
+  gsap.set(lines, { autoAlpha: 0 });
+  tween = gsap.timeline({ paused: true });
+  tween.from(split.chars, {
     opacity: 0,
     duration: 0.8,
-    stagger: 0.012,
+    stagger: step,
     ease: "power1.out",
-    paused: true,
+  });
+  lines.forEach((line) => {
+    const index = split.chars.findIndex((char) => line.contains(char));
+    if (index < 0) return;
+    tween.set(line, { autoAlpha: 1 }, index * step);
   });
   sync(clicks.value);
 });

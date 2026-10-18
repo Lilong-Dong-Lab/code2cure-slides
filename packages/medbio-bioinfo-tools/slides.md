@@ -17,7 +17,6 @@ fonts:
   sans: 'Arial'
   mono: 'Fira Code'
 themeConfig:
-  paginationPagesDisabled: [1]
   footerTel: '86265625'
 defaults:
   layout: default
@@ -30,8 +29,14 @@ exportFilename: medbio-bioinfo-tools
 ## 在现代药物发现中的应用
 
 ---
+layout: figure
+figureUrl: /assets/intro-portrait.jpeg
+figureX: l
+---
 
 # 个人简介
+
+## 董立龙
 
 河北医科大学药学学士，澳洲利亚昆士兰大学生物技术硕士、药物化学博士。曾任河北医科大学药学院药物分析教研室讲师，现任河北医科大学基础医学院医药生物教研室讲师。在 Journal of European Medicinal Chemistry, ACS Infectious Diseases, J. Med Chem 等国外杂志发表多篇学术论文，已获 3 项国际新药发明专利，国内授权 1 项新药发明专利。主持河北省教育厅研究项目 1 项、参与国家自然科学基金 2 项。
 
@@ -45,52 +50,67 @@ exportFilename: medbio-bioinfo-tools
 
 # 个人简介
 
-<div class="medbio-photos">
-
-<figure>
-  <img src="/assets/intro-portrait.jpeg" alt="董立龙" />
-  <figcaption>董立龙</figcaption>
-</figure>
-<figure>
-  <img src="/assets/intro-wechat.jpeg" alt="微信" />
-  <figcaption>全网同名</figcaption>
-</figure>
-<figure>
-  <img src="/assets/intro-bilibili.jpeg" alt="hugolld" />
-  <figcaption>hugolld</figcaption>
-</figure>
-
+<div class="medbio-profile">
+  <img class="medbio-profile-art" src="/assets/intro-illustration.jpg" alt="董立龙" />
+  <div class="medbio-profile-side">
+    <p class="medbio-handle">hugolld</p>
+    <p class="medbio-same-name">全网同名</p>
+    <div class="medbio-qr-row">
+      <img src="/assets/qr-wechat.png" alt="微信" />
+      <img src="/assets/qr-lab.png" alt="Lilong Dong Lab" />
+      <img src="/assets/qr-bilibili.png" alt="哔哩哔哩" />
+    </div>
+    <div class="medbio-social-row">
+      <img src="/assets/icon-github.png" alt="GitHub" />
+      <img src="/assets/icon-instagram.png" alt="Instagram" />
+      <img src="/assets/icon-x.png" alt="X" />
+      <img src="/assets/icon-youtube.png" alt="YouTube" />
+    </div>
+  </div>
 </div>
 
 ---
 
 # 医学生为什么要学生信，为什么要掌握生信工具
 
+<div class="medbio-why">
+
 <CharacterDissolve>
 
-- 当我们讨论**精准医疗**时，我们到底在讨论什么？
-- 某款抗癌药物“**靶向治疗**”，它到底靶向什么？
-- 为什么同样癌症，不同患者使用同一药物疗效差异巨大？
-- 基因组测序价格从 **27 亿美元（2003 年）降至 1000 美元以下**，这意味着什么？
-- 一款药从研发到上市需要 **10–15 年**，耗费**超过 20 亿美元**，这又意味着什么？
-- 生物信息学能为临床治疗方案决策、药物研发做些什么？
-
-> 生物信息学工具是我们进行前沿医学研究、开发创新疗法的“金钥匙”。
+<ul>
+<li>当我们讨论<strong>精准医疗</strong>时，我们到底在讨论什么？</li>
+<li class="is-in">某款抗癌药物“<strong>靶向治疗</strong>”，它到底靶向什么？</li>
+<li class="is-in">为什么同样癌症，不同患者使用同一药物疗效差异巨大？</li>
+<li class="is-in">基因组测序价格从 <strong>27 亿美元（2003 年）降至 1000 美元以下</strong>，这意味着什么？</li>
+<li class="is-in">一款药从研发到上市需要 <strong>10–15 年</strong>，耗费<strong>超过 20 亿美元</strong>，这又意味着什么？</li>
+<li>生物信息学能为临床治疗方案决策、药物研发做些什么？</li>
+</ul>
 
 </CharacterDissolve>
+
+<div v-click class="medbio-click-proxy" aria-hidden="true" />
+
+<p
+  v-motion
+  class="medbio-key"
+  :initial="{ opacity: 0, y: 12 }"
+  :click-2="{ opacity: 1, y: 0 }"
+>
+  生物信息学工具是我们进行前沿医学研究、开发创新疗法的“金钥匙”。
+</p>
+
+</div>
 
 ---
 
 # 本次课程将涵盖以下内容
 
-<v-clicks>
-
-1. 建立精准医学思维模式：从“一刀切”到“个性化治疗”
-2. 掌握不同交互方式的生物信息学工具：CLI/GUI/WebApp/API&Flow
-3. 理解药物发现的完整流程：从靶点的发现到候选药物优化
-4. 通过实际案例演示，直观感受体验现代药物开发的数字化流程：生物信息计算预测候选药物。
-
-</v-clicks>
+<ol class="medbio-agenda">
+<li v-click>建立精准医学思维模式：从“一刀切”到“个性化治疗”</li>
+<li v-click>掌握不同交互方式的生物信息学工具：CLI/GUI/WebApp/API&Flow</li>
+<li v-click>理解药物发现的完整流程：从靶点的发现到候选药物优化</li>
+<li v-click>通过实际案例演示，直观感受体验现代药物开发的数字化流程：生物信息→计算预测→候选药物。</li>
+</ol>
 
 ---
 layout: table-of-contents
