@@ -136,12 +136,17 @@ contentItems:
 
 ## 序列分析工具 (Sequence Analysis Tools)
 
+<TableWipe>
+
 | 名称 | 详情 |
 | --- | --- |
 | BLAST | 序列同源性搜索，发现基因/蛋白质相似性 |
 | ClustalW | 多重序列比对，分析进化关系和保守区域 |
 | BWA/Bowtie2 | 短序列比对，二代测序数据分析 |
 | HMMER | 隐马尔可夫模型，蛋白质结构域识别 |
+| ... | 还有很多很多... |
+
+</TableWipe>
 
 ---
 
@@ -149,17 +154,24 @@ contentItems:
 
 ## 结构分析工具 (Structure Analysis Tools)
 
+<TableWipe>
+
 | 名称 | 详情 |
 | --- | --- |
 | PyMOL | 3D 分子结构可视化，药物-靶点结合展示 |
 | ChimeraX | 高级分子建模和可视化，支持大分子复合物 |
 | Mol* | Web 端 3D 结构查看器，无需安装即可使用 |
+| ... | 还有很多很多... |
+
+</TableWipe>
 
 ---
 
 # 生信工具总览 ｜第二层: 数据库 / 知识资源
 
 ## 数据库 (Database or Knowledge Base)
+
+<TableWipe>
 
 | 类型 | 名称 | 详情 |
 | --- | --- | --- |
@@ -168,12 +180,15 @@ contentItems:
 | 基因表达数据库 | GEO, TCGA | 基因表达谱、癌症基因组 |
 | 通路数据库 | KEGG, Reactome | 代谢通路、信号转导 |
 | 互作数据库 | STRING, BioGRID | 蛋白质相互作用网络 |
+| ... |  | 还有很多很多... |
 
 <div class="hebmu-callout hebmu-callout-key">
 
 关键区别：数据库存储数据，工具处理数据。例如：GEO 是数据库（存储表达数据），GEO2R 是工具（分析差异表达）。
 
 </div>
+
+</TableWipe>
 
 ---
 
