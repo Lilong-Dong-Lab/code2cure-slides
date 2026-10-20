@@ -194,49 +194,7 @@ contentItems:
 
 # 生信工具总览 ｜第三层: 交互方式
 
-<div class="medbio-icons">
-
-<div
-  v-motion
-  class="medbio-icon"
-  :initial="{ opacity: 0, rotateY: -80 }"
-  :click-1="{ opacity: 1, rotateY: 0, transition: { type: 'spring' } }"
->
-  <div class="mark">CLI</div>
-  CLI
-</div>
-
-<div
-  v-motion
-  class="medbio-icon"
-  :initial="{ opacity: 0, rotateX: -70 }"
-  :click-2="{ opacity: 1, rotateX: 0, transition: { type: 'spring' } }"
->
-  <div class="mark">GUI</div>
-  GUI
-</div>
-
-<div
-  v-motion
-  class="medbio-icon"
-  :initial="{ opacity: 0, y: 40 }"
-  :click-3="{ opacity: 1, y: 0, transition: { type: 'spring', bounce: 0.45 } }"
->
-  <div class="mark">Web</div>
-  Web App
-</div>
-
-<div
-  v-motion
-  class="medbio-icon"
-  :initial="{ opacity: 0, scale: 0.6 }"
-  :click-4="{ opacity: 1, scale: 1, transition: { type: 'spring' } }"
->
-  <div class="mark">API</div>
-  API | Flow
-</div>
-
-</div>
+<InteractionIcons />
 
 ---
 

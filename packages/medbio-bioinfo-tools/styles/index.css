@@ -274,8 +274,21 @@
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 18px;
-  margin-top: 48px;
+  margin-top: 0;
   perspective: 800px;
+}
+
+/* Center icons in the purple content frame (::before: top 150 / bottom 78). */
+.slidev-page-11 .keynote-stage .medbio-icons {
+  position: absolute;
+  left: 56px;
+  right: 56px;
+  top: 150px;
+  bottom: 78px;
+  height: auto;
+  min-height: 0;
+  align-content: center;
+  margin: 0;
 }
 
 .medbio-icon {
@@ -313,9 +326,16 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 140px;
-  margin-bottom: 12px;
-  border: 3px solid var(--hebmu-primary);
-  border-radius: 16px;
-  font-size: 28px;
+  height: 160px;
+  margin-bottom: 14px;
+  overflow: hidden;
+  border-radius: 18px;
+  background: transparent;
+}
+
+.medbio-icon .mark img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transform: translateZ(0);
 }
