@@ -200,16 +200,7 @@ contentItems:
 
 # 生信工具总览 ｜同一个靶点，四种体验
 
-**目标蛋白：EGFR**（表皮生长因子，非小细胞肺癌靶点）
-
-<v-clicks>
-
-- **CLI**（命令行）：批量处理、自动化，适合服务器运行与流程化分析
-- **GUI**（图形界面）：直观易用，适合教学演示与交互式分析
-- **Web App**（网页应用）：无需安装、即开即用，适合快速查询
-- **API | Flow**（程序化）：可编程、可扩展，适合自动化流程与批量处理
-
-</v-clicks>
+<SameTargetExperiences />
 
 ---
 layout: table-of-contents
