@@ -26,15 +26,13 @@
         class="pipeline-arrow"
         aria-hidden="true"
       >
-        <svg viewBox="0 0 28 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path
-            d="M2 12h18M14 4l10 8-10 8"
-            stroke="currentColor"
-            stroke-width="2.2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          />
-        </svg>
+        <img
+          src="/assets/pipeline-arrow.png"
+          alt=""
+          width="18"
+          height="21"
+          draggable="false"
+        />
       </div>
     </template>
   </div>
@@ -139,12 +137,15 @@ const stages = [
   flex: 0 0 auto;
   display: flex;
   align-items: center;
-  color: #5a5a5a;
+  justify-content: center;
 }
 
-.pipeline-arrow svg {
+.pipeline-arrow img {
   width: 18px;
-  height: 16px;
+  height: auto;
   display: block;
+  object-fit: contain;
+  user-select: none;
+  pointer-events: none;
 }
 </style>
