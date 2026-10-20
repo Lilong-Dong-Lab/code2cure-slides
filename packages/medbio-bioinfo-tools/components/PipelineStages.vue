@@ -1,103 +1,150 @@
 <template>
-  <div>
-    <div
-      v-for="n in motion === 'flip' ? stages.length : 0"
-      :key="n"
-      class="medbio-click-proxy"
-      v-click
-      aria-hidden="true"
-    />
-    <div ref="row" class="stages" :class="{ 'is-flip': motion === 'flip' }">
+  <div class="pipeline-flow" :class="{ 'has-active': active > 0 }">
+    <template v-for="(stage, index) in stages" :key="stage.id">
       <div
-        v-for="(stage, index) in stages"
-        :key="stage.id"
-        class="medbio-stage"
-        :class="{ 'is-active': index + 1 === shown }"
-        :style="{ viewTransitionName: stage.id }"
+        class="pipeline-stage"
+        :class="{
+          'is-active': active === index + 1,
+          'is-dimmed': active > 0 && active !== index + 1,
+          'is-tall': Array.isArray(stage.title),
+        }"
+        :style="{
+          '--stage-top': stage.top,
+          '--stage-bot': stage.bot,
+          viewTransitionName: stage.id,
+        }"
       >
-        {{ stage.title }}
+        <template v-if="Array.isArray(stage.title)">
+          <span v-for="line in stage.title" :key="line">{{ line }}</span>
+        </template>
+        <template v-else>
+          {{ stage.title }}
+        </template>
       </div>
-    </div>
+      <div
+        v-if="index < stages.length - 1"
+        class="pipeline-arrow"
+        aria-hidden="true"
+      >
+        <svg viewBox="0 0 28 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M2 12h18M14 4l10 8-10 8"
+            stroke="currentColor"
+            stroke-width="2.2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </div>
+    </template>
   </div>
 </template>
 
 <script setup lang="ts">
-import { useNav } from "@slidev/client";
-import gsap from "gsap";
-import { Flip } from "gsap/Flip";
-import { nextTick, onMounted, ref, watch } from "vue";
+withDefaults(
+  defineProps<{
+    /** 1-based index of the highlighted stage; 0 = none */
+    active?: number;
+  }>(),
+  { active: 0 },
+);
 
-gsap.registerPlugin(Flip);
-
+/** Top/bottom stops sampled from the Keynote overview slide. */
 const stages = [
-  { id: "stage-discovery", title: "靶点发现" },
-  { id: "stage-validation", title: "靶点确证" },
-  { id: "stage-hit", title: "先导发现" },
-  { id: "stage-lead", title: "先导优化" },
-  { id: "stage-preclinical", title: "临床前实验" },
-  { id: "stage-clinical", title: "临床实验" },
-];
-
-const props = withDefaults(
-  defineProps<{ motion?: "flip" | "static"; active?: number }>(),
-  { motion: "static", active: 0 },
-);
-
-const { clicks } = useNav();
-const shown = ref(props.active);
-
-function apply(step: number) {
-  shown.value = props.motion === "flip" ? step : props.active;
-}
-
-onMounted(() => apply(clicks.value));
-
-watch(
-  clicks,
-  async (step, previous) => {
-    if (props.motion !== "flip") return;
-    if (previous === undefined) {
-      apply(step);
-      return;
-    }
-    const state = Flip.getState(".medbio-stage");
-    apply(step);
-    await nextTick();
-    Flip.from(state, {
-      duration: 0.55,
-      ease: "power1.inOut",
-      absolute: true,
-    });
+  { id: "stage-discovery", title: "靶点发现", top: "#64b2b4", bot: "#089197" },
+  { id: "stage-validation", title: "靶点确证", top: "#9fc5b4", bot: "#5a9a78" },
+  { id: "stage-hit", title: "先导发现", top: "#e8d4a0", bot: "#c9a44a" },
+  { id: "stage-lead", title: "先导优化", top: "#f0b060", bot: "#d17907" },
+  {
+    id: "stage-clinical",
+    title: ["临床前实验", "临床实验"],
+    top: "#e87868",
+    bot: "#c1361c",
   },
-  { flush: "pre" },
-);
+];
 </script>
 
 <style scoped>
-.stages {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 16px;
-}
-
-.medbio-stage {
+.pipeline-flow {
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 72px;
-  border: 2px solid var(--hebmu-border);
-  border-radius: 10px;
-  color: var(--hebmu-primary);
-  font-size: 24px;
-  font-weight: 700;
+  gap: 4px;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
-.stages.is-flip .medbio-stage.is-active {
-  grid-column: 1 / -1;
-}
+.pipeline-stage {
+  --stage-top: #888;
+  --stage-bot: #444;
 
-.medbio-stage.is-active {
-  background: var(--hebmu-primary);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1 1 0;
+  min-width: 0;
+  min-height: 58px;
+  padding: 6px 4px;
+  border-radius: 12px;
   color: #fff;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.2;
+  text-align: center;
+  text-shadow: 0 1px 1px rgb(0 0 0 / 22%);
+  /* Keynote-like stack: gloss → base diagonal fill → soft depth */
+  background:
+    linear-gradient(
+      180deg,
+      rgb(255 255 255 / 38%) 0%,
+      rgb(255 255 255 / 10%) 38%,
+      transparent 55%
+    ),
+    linear-gradient(165deg, var(--stage-top) 0%, var(--stage-bot) 100%);
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 55%),
+    inset 0 -2px 3px rgb(0 0 0 / 14%),
+    0 4px 10px rgb(0 0 0 / 18%),
+    0 1px 2px rgb(0 0 0 / 12%);
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.pipeline-stage.is-tall {
+  flex: 1.12 1 0;
+  min-height: 64px;
+  gap: 1px;
+  font-size: 16px;
+  padding: 5px 3px;
+}
+
+.pipeline-flow.has-active .pipeline-stage.is-dimmed {
+  opacity: 0.42;
+}
+
+.pipeline-flow.has-active .pipeline-stage.is-active {
+  transform: scale(1.04);
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 55%),
+    inset 0 -2px 3px rgb(0 0 0 / 14%),
+    0 6px 14px rgb(0 0 0 / 26%),
+    0 0 0 3px color-mix(in srgb, var(--hebmu-primary) 35%, transparent);
+}
+
+.pipeline-arrow {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  color: #5a5a5a;
+}
+
+.pipeline-arrow svg {
+  width: 18px;
+  height: 16px;
+  display: block;
 }
 </style>

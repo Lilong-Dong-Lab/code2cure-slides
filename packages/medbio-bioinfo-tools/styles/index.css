@@ -337,6 +337,40 @@
   padding-bottom: 120px;
 }
 
+/* Overview flow: center inside the purple frame (::before inset 45 / 78). */
+.slidev-page-14 .keynote-stage .pipeline-flow {
+  position: absolute;
+  left: 62px;
+  right: 62px;
+  top: 150px;
+  bottom: 78px;
+  width: auto;
+  max-width: none;
+  margin: 0;
+}
+
+.slidev-layout .keynote-stage .drug-pipeline-figure {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 4px;
+  min-height: 0;
+}
+
+.slidev-layout .keynote-stage .drug-pipeline-figure img {
+  display: block;
+  width: 100%;
+  max-height: 468px;
+  height: auto;
+  object-fit: contain;
+}
+
+.slidev-layout .keynote-stage .drug-pipeline-figure + .hebmu-source {
+  margin-top: 6px;
+  font-size: 12px;
+  line-height: 1.35;
+}
+
 .medbio-icon .mark img {
   transform: translateZ(0);
 }

@@ -4,7 +4,7 @@
     class="interaction-layer"
     :class="isGrid ? 'is-grid' : 'is-row'"
   >
-    <Teleport v-if="titleMount" :to="titleMount">
+    <Teleport v-if="showTitle && titleMount" :to="titleMount">
       <h1 class="keynote-slide-title interaction-slide-title">
         {{ titleText }}
       </h1>
@@ -57,10 +57,14 @@ const items = [
 ];
 
 const root = ref<HTMLElement | null>(null);
+const hostPage = ref<number | null>(null);
 const titleMount = ref<string | null>(null);
 const { clicks, currentSlideNo } = useNav();
 const isGrid = computed(() => clicks.value >= 5);
 const titleText = computed(() => (isGrid.value ? TITLE_GRID : TITLE_ROW));
+const showTitle = computed(
+  () => hostPage.value !== null && currentSlideNo.value === hostPage.value,
+);
 const appeared = reactive([false, false, false, false]);
 
 let flipTween: gsap.core.Timeline | null = null;
@@ -72,9 +76,16 @@ function iconNodes() {
   );
 }
 
+function resolveHostPage() {
+  const page = root.value?.closest("[class*='slidev-page-']");
+  const match = page?.className.match(/slidev-page-(\d+)/);
+  return match ? Number(match[1]) : null;
+}
+
 function slideScale() {
+  const no = hostPage.value ?? currentSlideNo.value;
   const page = document.querySelector(
-    `.slidev-page-${currentSlideNo.value}`,
+    `.slidev-page-${no}`,
   ) as HTMLElement | null;
   if (!page) return 1;
   return page.getBoundingClientRect().width / 1024;
@@ -97,29 +108,19 @@ function settleIcons(targets: HTMLElement[]) {
   });
 }
 
-async function mountTitle(no: number) {
-  titleMount.value = null;
-  await nextTick();
-  titleMount.value = `.slidev-page-${no} .keynote-layout`;
-}
-
 onMounted(async () => {
   await nextTick();
-  await mountTitle(currentSlideNo.value);
+  hostPage.value = resolveHostPage();
+  if (hostPage.value !== null) {
+    titleMount.value = `.slidev-page-${hostPage.value} .keynote-layout`;
+  }
 });
 
-watch(
-  () => currentSlideNo.value,
-  (no) => {
-    void mountTitle(no);
-  },
-);
-
 watch(titleText, async (_text, prev) => {
-  if (!prev) return;
+  if (!prev || !showTitle.value) return;
   await nextTick();
   const el = document.querySelector(
-    ".interaction-slide-title",
+    `.slidev-page-${hostPage.value} .interaction-slide-title`,
   ) as HTMLElement | null;
   if (!el) return;
   gsap.fromTo(el, { opacity: 0 }, { opacity: 1, duration: 0.28 });

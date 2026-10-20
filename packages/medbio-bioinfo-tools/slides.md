@@ -210,16 +210,9 @@ contentItems:
 
 # 药物发现管线概览 ｜ 传统药物研发的流程
 
-| 阶段 | 周期 | 成功率 |
-| --- | --- | --- |
-| Target validation | 1.5 year | ~3% |
-| Compound screening | 1.5 year | 6% |
-| Lead optimization | 1.5 year | 17% |
-| Pre clinical test | 1 year | ~7% |
-| Phase I | 1.5 year | ~15% |
-| Phase II | 2.5 year | 21% |
-| Phase III | 2.5 year | 26% |
-| Approval to launch | 1.5 year | ~5% |
+<div class="drug-pipeline-figure">
+  <img src="/assets/drug-pipeline-traditional.png" alt="Traditional drug discovery pipeline" />
+</div>
 
 <p class="hebmu-source">Sun, D, Gao, W, Hu, H, & Zhou, S. (2022). Why 90% of clinical drug development fails and how to improve it?. Acta Pharmaceutica Sinica B, 12(7), 3049-3062.</p>
 
@@ -229,9 +222,7 @@ transition: view-transition
 
 # 药物发现管线概览 ｜ 药物的数字化诞生记
 
-靶点发现 → 靶点确证 → 先导发现 → 先导优化 → 临床前实验 → 临床实验
-
-<PipelineStages motion="flip" />
+<PipelineStages />
 
 ---
 transition: view-transition
