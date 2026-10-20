@@ -197,12 +197,6 @@ contentItems:
 <InteractionIcons />
 
 ---
-
-# 生信工具总览 ｜同一个靶点，四种体验
-
-<SameTargetExperiences />
-
----
 layout: table-of-contents
 contentTitle: '目录 | CONTENT'
 active: 2
