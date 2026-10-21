@@ -73,6 +73,11 @@ const stages = [
   box-sizing: border-box;
 }
 
+/* Detail slides: keep the active pill’s scale/shadow clear of the h2 below. */
+.pipeline-flow.has-active {
+  margin-bottom: 36px;
+}
+
 .pipeline-stage {
   --stage-top: #888;
   --stage-bot: #444;
