@@ -4,6 +4,7 @@ import { chromium } from "playwright-chromium";
 
 const port = 4179;
 const deck = fileURLToPath(new URL("../packages/medbio-bioinfo-tools/", import.meta.url));
+const ansiColor = /\u001B\[[0-9;]*m/g;
 
 function startDeck() {
   const child = spawn("npx", ["slidev", "--port", String(port), "--open", "false"], {
@@ -13,10 +14,10 @@ function startDeck() {
   });
   let log = "";
   child.stdout.on("data", (chunk) => {
-    log += chunk;
+    log += chunk.toString().replace(ansiColor, "");
   });
   child.stderr.on("data", (chunk) => {
-    log += chunk;
+    log += chunk.toString().replace(ansiColor, "");
   });
   return { child, readLog: () => log };
 }
@@ -27,7 +28,9 @@ async function waitForDeck(readLog) {
     if (readLog().includes(`localhost:${port}`)) return;
     await new Promise((resolve) => setTimeout(resolve, 250));
   }
-  throw new Error("Slidev did not print its local URL");
+  throw new Error(
+    `Slidev did not print its local URL within 90s. Deck log tail:\n${readLog().slice(-4000)}`,
+  );
 }
 
 async function waitForVisibleText(page, text) {
@@ -74,7 +77,7 @@ try {
   expectSize("body list", await firstVisible(page, ".keynote-stage li"), "24px");
   expectSize("body key line", await firstVisible(page, ".medbio-key"), "24px");
 
-  await page.goto(`http://localhost:${port}/27`, { waitUntil: "load" });
+  await page.goto(`http://localhost:${port}/26`, { waitUntil: "load" });
   await waitForVisibleText(page, "PyMOL");
   expectSize("compact title", await firstVisible(page, "h1"), "32px");
   expectSize("compact paragraph", await firstVisible(page, ".keynote-stage p"), "24px");
@@ -82,21 +85,23 @@ try {
 
   await page.goto(`http://localhost:${port}/15`, { waitUntil: "load" });
   await waitForVisibleText(page, "靶点发现");
-  const before = await page.evaluate(() => {
+  const pipeline = await page.evaluate(() => {
     const layout = [...document.querySelectorAll(".slidev-layout")].find(
       (element) => element.getBoundingClientRect().width > 100,
     );
-    return layout.querySelector(".medbio-stage").getBoundingClientRect().width;
+    const active = layout?.querySelector(".pipeline-stage.is-active");
+    const dimmed = layout?.querySelector(".pipeline-stage.is-dimmed");
+    return {
+      activeScale: active ? getComputedStyle(active).transform : null,
+      dimmedOpacity: dimmed ? Number(getComputedStyle(dimmed).opacity) : null,
+    };
   });
-  await page.keyboard.press("ArrowRight");
-  await page.waitForFunction((start) => {
-    const layout = [...document.querySelectorAll(".slidev-layout")].find(
-      (element) => element.getBoundingClientRect().width > 100,
-    );
-    const active = layout?.querySelector(".medbio-stage.is-active");
-    if (!active) return false;
-    return active.getBoundingClientRect().width > start * 1.5;
-  }, before);
+  if (!pipeline.activeScale || pipeline.activeScale === "none") {
+    failures.push(`pipeline active stage scale: ${pipeline.activeScale ?? "missing"}`);
+  }
+  if (pipeline.dimmedOpacity === null || pipeline.dimmedOpacity > 0.5) {
+    failures.push(`pipeline dimmed stage opacity: ${pipeline.dimmedOpacity ?? "missing"}`);
+  }
 } finally {
   await browser?.close();
   if (child.pid) {
