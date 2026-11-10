@@ -67,6 +67,8 @@ try {
   browser = await chromium.launch();
   const page = await browser.newPage({ viewport: { width: 1280, height: 800 } });
 
+  // Slide numbers below are hardcoded and rot on every deck edit.
+  // Re-map them with: node scripts/probe-slides.mjs
   await page.goto(`http://localhost:${port}/1`, { waitUntil: "load" });
   await waitForVisibleText(page, "生物信息学常用工具");
   expectSize("cover title", await firstVisible(page, ".cover-title h1"), "44px");
