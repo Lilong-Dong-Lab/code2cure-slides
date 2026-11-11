@@ -99,7 +99,7 @@ function themeStaticPlugin(): Plugin {
       }
     },
 
-    // Slidev's build copies the pnpm symlink tree into dist/.../theme/node_modules/
+    // Slidev's build copies the symlinked theme's node_modules into dist/.../theme/node_modules/
     closeBundle() {
       if (!outDir) return;
       const nm = join(outDir, "theme", "node_modules");
