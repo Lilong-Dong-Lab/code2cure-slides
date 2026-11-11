@@ -53,3 +53,17 @@ Uses `slidev-theme-hebmu` from `Lilong-Dong-Lab/slidev-theme-hebmu`. CI installs
 - Primary language: Chinese; secondary: English
 - Images go in `packages/<name>/public/assets/`
 - Mermaid diagrams and KaTeX math are supported natively
+
+## Agent skills
+
+### Issue tracker
+
+Issues live in GitHub Issues (`Lilong-Dong-Lab/code2cure-slides`), driven via the `gh` CLI. See `docs/agents/issue-tracker.md`.
+
+### Triage labels
+
+The five canonical triage roles, each label string equal to its name. See `docs/agents/triage-labels.md`.
+
+### Domain docs
+
+Single-context: one `GLOSSARY.md` and `docs/adr/` at the repo root serve all slide decks. See `docs/agents/domain.md`.
