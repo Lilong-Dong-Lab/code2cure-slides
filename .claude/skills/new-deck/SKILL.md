@@ -124,8 +124,8 @@ Content goes here
 
 5. Create `packages/<deck-name>/public/assets/` directory (empty, for images).
 
-6. Install dependencies: run `pnpm install` from the repo root.
+6. Install dependencies: run `npm install` from the repo root.
 
-7. Verify the dev server starts: `pnpm --filter <deck-name> run dev` (start it briefly, then kill — just confirm no errors).
+7. Verify the dev server starts: `npm run dev -w <deck-name>` (start it briefly, then kill — just confirm no errors).
 
 8. Print a summary of what was created and how to start developing.

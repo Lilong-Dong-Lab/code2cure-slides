@@ -9,6 +9,8 @@ CLAUDE.local.md
 # Local tooling caches (not shared with the team)
 .playwright-mcp/
 .agents/
+.firecrawl/
+.cursor/
 
 # Locally-installed skill packs (unrelated Cloudflare/Workers skills leaked in;
 # keep the project's own new-deck skill tracked)

@@ -1,5 +1,5 @@
 import { readdirSync, readFileSync, writeFileSync, statSync } from 'node:fs'
-import { join } from 'node:path'
+import { join, relative } from 'node:path'
 
 const distRoot = new URL('../dist', import.meta.url).pathname
 const rules = []
@@ -12,6 +12,7 @@ function walk(dir) {
     try {
       if (statSync(redirectsFile).isFile()) {
         rules.push(readFileSync(redirectsFile, 'utf8').trim())
+        console.log(`shipped: /${relative(distRoot, child)}/`)
       }
     } catch {}
     walk(child)
