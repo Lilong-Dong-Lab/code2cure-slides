@@ -41,6 +41,7 @@ Uses `slidev-theme-hebmu` from `Lilong-Dong-Lab/slidev-theme-hebmu`. CI installs
 
 ## Deployment
 
+- Live site: `https://slides.code2cure.io` — custom domain on the `code2cure-slides` Pages project; the domain mapping lives only in the Cloudflare dashboard
 - CI: `.github/workflows/deploy.yaml` builds on push to main and deploys to Cloudflare Pages
 - Requires secrets: `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID`
 - Build command in CI: `npm run packages:build-base`
