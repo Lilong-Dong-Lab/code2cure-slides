@@ -1,0 +1,3 @@
+# Service-course decks deploy under /medbio/
+
+The site gives each course a top-level folder: the chapter decks of the bioinformatics major live under `/bioinfo/<deck-name>/`. When the first service-course deck (`medbio-bioinfo-tools`) went public, it needed a parallel home. A service-course deck deploys under `/medbio/<deck-name>/`, and its `build-base` script is the switch that publishes it. The flat form `/medbio-bioinfo-tools/` was rejected because it breaks the two-level course/deck pattern, and `/medbio/medbio-bioinfo-tools/` because it repeats the course key. Reversal is cheap until students bookmark the URL, and sticky after.

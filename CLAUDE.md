@@ -15,7 +15,7 @@ npm run check:lockfile                # Theme pin and versioned node_modules ent
 npm run check:type-scale              # Service-course deck cover, body, compact, and pipeline click
 npm run dev --workspaces --if-present # Start dev server for all decks
 npm run packages:build                # Build all decks (output: dist/)
-npm run packages:build-base           # Build chapter decks with custom base paths for deployment
+npm run packages:build-base           # Build published decks with custom base paths for deployment
 ```
 
 Run commands for a single deck:
@@ -31,6 +31,8 @@ npm run export -w bioinfo-ch10-network-analysis         # Export to PDF
 - New decks go in `packages/<name>/` with their own `package.json` and `slides.md`
 - A chapter deck's build output uses `dist/bioinfo/<deck-name>/`
 - A chapter deck's `build-base` script sets `--base` for asset paths on Cloudflare Pages
+- A service-course deck's build output uses `dist/medbio/<deck-name>/`
+- A service-course deck deploys when its `build-base` script exists; before that, the build loop skips it
 - A service-course deck follows the decisions recorded for that deck. Shared words live in `GLOSSARY.md`
 
 ## Theme

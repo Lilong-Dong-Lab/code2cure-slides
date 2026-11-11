@@ -12,6 +12,10 @@ _Avoid_: major deck, course deck
 A lecture deck for the service course 生物信息学.
 _Avoid_: tools lecture, medbio lecture
 
+**medbio**:
+The short key for the service course 生物信息学, used as the prefix in its deck names and site paths. It names the course, not the audience or the bioinformatics major.
+_Avoid_: service prefix, tools course
+
 **Drug-discovery pipeline**:
 The stage sequence from target discovery through clinical trial.
 _Avoid_: procedure, workflow

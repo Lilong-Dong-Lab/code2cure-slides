@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "slidev --open",
     "build": "slidev build",
+    "build-base": "slidev build --out ../../dist/medbio/bioinfo-tools --base /medbio/bioinfo-tools/",
     "export": "slidev export --with-clicks --per-slide"
   },
   "dependencies": {

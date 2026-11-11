@@ -73,7 +73,7 @@ title: <Title>
   "scripts": {
     "dev": "slidev --open",
     "build": "slidev build",
-    "build-base": "slidev build --out ../../dist/<course>/<deck-name> --base /<course>-<deck-name>/",
+    "build-base": "slidev build --out ../../dist/<course>/<deck-name> --base /<course>/<deck-name>/",
     "export": "slidev export --with-clicks --per-slide"
   },
   "dependencies": {
