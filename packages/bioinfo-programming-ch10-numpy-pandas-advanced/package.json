@@ -1,0 +1,17 @@
+{
+  "name": "bioinfo-programming-ch10-numpy-pandas-advanced",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "slidev --open",
+    "build": "slidev build",
+    "build-base": "slidev build --out ../../dist/bioinfo-programming/ch10-numpy-pandas-advanced --base /bioinfo-programming/ch10-numpy-pandas-advanced/",
+    "export": "slidev export --with-clicks --per-slide"
+  },
+  "dependencies": {
+    "slidev-theme-hebmu": "git+https://github.com/Lilong-Dong-Lab/slidev-theme-hebmu.git"
+  },
+  "devDependencies": {
+    "playwright-chromium": "^1.52.0"
+  }
+}
