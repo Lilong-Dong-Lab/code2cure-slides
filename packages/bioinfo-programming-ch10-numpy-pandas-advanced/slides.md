@@ -746,32 +746,26 @@ left, right = expr.iloc[:, :10], expr.iloc[:, 10:]  # 表达矩阵左右两半
   gap: 0.2rem;
 }
 .concat-arrow {
-  color: var(--hebmu-purple-soft, #8f55ad);
   font-size: 1.25rem;
-  font-weight: 700;
-  line-height: 1;
+  align-self: center;
 }
 .concat-tag {
   font-size: 11px;
   font-weight: 700;
-  color: var(--hebmu-primary, #4e136c);
   margin-bottom: 0.08rem;
   text-align: center;
 }
-.concat-frame {
-  display: grid;
+.hebmu-pd-frame.is-2col { grid-template-columns: 1.9rem repeat(2, minmax(2.5rem, 1fr)); }
+.hebmu-pd-frame.is-4col { grid-template-columns: 1.9rem repeat(4, minmax(2.1rem, 1fr)); }
+.hebmu-pd-frame {
   gap: 0.18rem 0.2rem;
   font-size: 11px;
   line-height: 1.1;
 }
-.concat-frame.is-2col { grid-template-columns: 1.9rem repeat(2, minmax(2.5rem, 1fr)); }
-.concat-frame.is-4col { grid-template-columns: 1.9rem repeat(4, minmax(2.1rem, 1fr)); }
-.concat-idx, .concat-head, .concat-cell {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.hebmu-pd-idx, .hebmu-pd-head, .hebmu-pd-cell {
   border-radius: 4px;
   min-height: 1.35rem;
+  min-width: 0;
   padding: 0 0.15rem;
 }
 .concat-code {
@@ -803,31 +797,31 @@ left, right = expr.iloc[:, :10], expr.iloc[:, 10:]  # 表达矩阵左右两半
 <div class="concat-flow">
   <div class="concat-stack">
     <div>
-      <div class="concat-tag">batch_a</div>
-      <div class="concat-frame is-2col" aria-label="batch_a">
-        <div></div><div class="concat-head">id</div><div class="concat-head">stage</div>
-        <div class="concat-idx">0</div><div class="concat-cell">LC001</div><div class="concat-cell">IIIB</div>
-        <div class="concat-idx">1</div><div class="concat-cell">LC002</div><div class="concat-cell">II</div>
+      <div class="hebmu-pd-tag concat-tag">batch_a</div>
+      <div class="hebmu-pd-frame is-2col" aria-label="batch_a">
+        <div></div><div class="hebmu-pd-head">id</div><div class="hebmu-pd-head">stage</div>
+        <div class="hebmu-pd-idx">0</div><div class="hebmu-pd-cell">LC001</div><div class="hebmu-pd-cell">IIIB</div>
+        <div class="hebmu-pd-idx">1</div><div class="hebmu-pd-cell">LC002</div><div class="hebmu-pd-cell">II</div>
       </div>
     </div>
     <div>
-      <div class="concat-tag">batch_b</div>
-      <div class="concat-frame is-2col" aria-label="batch_b">
-        <div></div><div class="concat-head">id</div><div class="concat-head">stage</div>
-        <div class="concat-idx">0</div><div class="concat-cell">LC016</div><div class="concat-cell">II</div>
-        <div class="concat-idx">1</div><div class="concat-cell">LC017</div><div class="concat-cell">IIIB</div>
+      <div class="hebmu-pd-tag concat-tag">batch_b</div>
+      <div class="hebmu-pd-frame is-2col" aria-label="batch_b">
+        <div></div><div class="hebmu-pd-head">id</div><div class="hebmu-pd-head">stage</div>
+        <div class="hebmu-pd-idx">0</div><div class="hebmu-pd-cell">LC016</div><div class="hebmu-pd-cell">II</div>
+        <div class="hebmu-pd-idx">1</div><div class="hebmu-pd-cell">LC017</div><div class="hebmu-pd-cell">IIIB</div>
       </div>
     </div>
   </div>
-  <div class="concat-arrow" aria-hidden="true">→</div>
+  <div class="hebmu-pd-arrow concat-arrow" aria-hidden="true">→</div>
   <div>
-    <div class="concat-tag">结果 4×2</div>
-    <div class="concat-frame is-2col" aria-label="axis=0 result">
-      <div></div><div class="concat-head">id</div><div class="concat-head">stage</div>
-      <div class="concat-idx">0</div><div class="concat-cell">LC001</div><div class="concat-cell">IIIB</div>
-      <div class="concat-idx">1</div><div class="concat-cell">LC002</div><div class="concat-cell">II</div>
-      <div class="concat-idx">0</div><div class="concat-cell">LC016</div><div class="concat-cell">II</div>
-      <div class="concat-idx">1</div><div class="concat-cell">LC017</div><div class="concat-cell">IIIB</div>
+    <div class="hebmu-pd-tag concat-tag">结果 4×2</div>
+    <div class="hebmu-pd-frame is-2col" aria-label="axis=0 result">
+      <div></div><div class="hebmu-pd-head">id</div><div class="hebmu-pd-head">stage</div>
+      <div class="hebmu-pd-idx">0</div><div class="hebmu-pd-cell">LC001</div><div class="hebmu-pd-cell">IIIB</div>
+      <div class="hebmu-pd-idx">1</div><div class="hebmu-pd-cell">LC002</div><div class="hebmu-pd-cell">II</div>
+      <div class="hebmu-pd-idx">0</div><div class="hebmu-pd-cell">LC016</div><div class="hebmu-pd-cell">II</div>
+      <div class="hebmu-pd-idx">1</div><div class="hebmu-pd-cell">LC017</div><div class="hebmu-pd-cell">IIIB</div>
     </div>
   </div>
 </div>
@@ -835,29 +829,29 @@ left, right = expr.iloc[:, :10], expr.iloc[:, 10:]  # 表达矩阵左右两半
 <div class="concat-flow">
   <div class="concat-row">
     <div>
-      <div class="concat-tag">left</div>
-      <div class="concat-frame is-2col" aria-label="left">
-        <div></div><div class="concat-head">EGFR</div><div class="concat-head">KRAS</div>
-        <div class="concat-idx">0</div><div class="concat-cell">118</div><div class="concat-cell">4.8</div>
-        <div class="concat-idx">1</div><div class="concat-cell">23</div><div class="concat-cell">16</div>
+      <div class="hebmu-pd-tag concat-tag">left</div>
+      <div class="hebmu-pd-frame is-2col" aria-label="left">
+        <div></div><div class="hebmu-pd-head">EGFR</div><div class="hebmu-pd-head">KRAS</div>
+        <div class="hebmu-pd-idx">0</div><div class="hebmu-pd-cell">118</div><div class="hebmu-pd-cell">4.8</div>
+        <div class="hebmu-pd-idx">1</div><div class="hebmu-pd-cell">23</div><div class="hebmu-pd-cell">16</div>
       </div>
     </div>
     <div>
-      <div class="concat-tag">right</div>
-      <div class="concat-frame is-2col" aria-label="right">
-        <div></div><div class="concat-head">KEAP1</div><div class="concat-head">ERBB2</div>
-        <div class="concat-idx">0</div><div class="concat-cell">18</div><div class="concat-cell">17</div>
-        <div class="concat-idx">1</div><div class="concat-cell">34</div><div class="concat-cell">10</div>
+      <div class="hebmu-pd-tag concat-tag">right</div>
+      <div class="hebmu-pd-frame is-2col" aria-label="right">
+        <div></div><div class="hebmu-pd-head">KEAP1</div><div class="hebmu-pd-head">ERBB2</div>
+        <div class="hebmu-pd-idx">0</div><div class="hebmu-pd-cell">18</div><div class="hebmu-pd-cell">17</div>
+        <div class="hebmu-pd-idx">1</div><div class="hebmu-pd-cell">34</div><div class="hebmu-pd-cell">10</div>
       </div>
     </div>
   </div>
-  <div class="concat-arrow" aria-hidden="true">→</div>
+  <div class="hebmu-pd-arrow concat-arrow" aria-hidden="true">→</div>
   <div>
-    <div class="concat-tag">结果 2×4</div>
-    <div class="concat-frame is-4col" aria-label="axis=1 result">
-      <div></div><div class="concat-head">EGFR</div><div class="concat-head">KRAS</div><div class="concat-head">KEAP1</div><div class="concat-head">ERBB2</div>
-      <div class="concat-idx">0</div><div class="concat-cell">118</div><div class="concat-cell">4.8</div><div class="concat-cell">18</div><div class="concat-cell">17</div>
-      <div class="concat-idx">1</div><div class="concat-cell">23</div><div class="concat-cell">16</div><div class="concat-cell">34</div><div class="concat-cell">10</div>
+    <div class="hebmu-pd-tag concat-tag">结果 2×4</div>
+    <div class="hebmu-pd-frame is-4col" aria-label="axis=1 result">
+      <div></div><div class="hebmu-pd-head">EGFR</div><div class="hebmu-pd-head">KRAS</div><div class="hebmu-pd-head">KEAP1</div><div class="hebmu-pd-head">ERBB2</div>
+      <div class="hebmu-pd-idx">0</div><div class="hebmu-pd-cell">118</div><div class="hebmu-pd-cell">4.8</div><div class="hebmu-pd-cell">18</div><div class="hebmu-pd-cell">17</div>
+      <div class="hebmu-pd-idx">1</div><div class="hebmu-pd-cell">23</div><div class="hebmu-pd-cell">16</div><div class="hebmu-pd-cell">34</div><div class="hebmu-pd-cell">10</div>
     </div>
   </div>
 </div>
@@ -912,33 +906,24 @@ density: compact
 .rx-col { display: flex; flex-direction: column; align-items: center; }
 .rx-tag {
   font-size: 14px;
-  font-weight: 700;
-  color: var(--hebmu-primary, #4e136c);
   margin-bottom: 0.1rem;
   line-height: 1.2;
-  text-align: center;
 }
 .rx-arrow {
-  color: var(--hebmu-purple-soft, #8f55ad);
   font-size: 1.6rem;
-  font-weight: 700;
-  line-height: 1;
 }
-.rx-frame {
-  display: grid;
+.hebmu-pd-frame {
   gap: 0.21rem 0.23rem;
   font-size: 14px;
   line-height: 1.1;
 }
-.rx-frame.is-2col { grid-template-columns: 3.1rem minmax(4.2rem, 1fr); }
-.rx-frame.is-3col { grid-template-columns: 2.2rem minmax(4.4rem, 1fr) minmax(3.4rem, 1fr); }
-.rx-frame.is-ids { grid-template-columns: minmax(4.4rem, 1fr); }
-.rx-idx, .rx-head, .rx-cell {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.hebmu-pd-frame.is-2col { grid-template-columns: 3.1rem minmax(4.2rem, 1fr); }
+.hebmu-pd-frame.is-3col { grid-template-columns: 2.2rem minmax(4.4rem, 1fr) minmax(3.4rem, 1fr); }
+.hebmu-pd-frame.is-ids { grid-template-columns: minmax(4.4rem, 1fr); }
+.hebmu-pd-idx, .hebmu-pd-head, .hebmu-pd-cell {
   border-radius: 4px;
   min-height: 1.7rem;
+  min-width: 0;
   padding: 0 0.22rem;
 }
 .rx-code {
@@ -961,22 +946,22 @@ stage = lung.set_index("patient_id")["stage"]
 </div>
 <div class="rx-step">
   <div class="rx-col">
-    <div class="rx-tag">lung（ID 还是列）</div>
-    <div class="rx-frame is-3col" aria-label="lung before set_index">
-      <div></div><div class="rx-head">patient_id</div><div class="rx-head">stage</div>
-      <div class="rx-idx">0</div><div class="rx-cell">LC001</div><div class="rx-cell">IIIB</div>
-      <div class="rx-idx">1</div><div class="rx-cell">LC002</div><div class="rx-cell">II</div>
-      <div class="rx-idx">2</div><div class="rx-cell">LC004</div><div class="rx-cell">IIIA</div>
+    <div class="hebmu-pd-tag rx-tag">lung（ID 还是列）</div>
+    <div class="hebmu-pd-frame is-3col" aria-label="lung before set_index">
+      <div></div><div class="hebmu-pd-head">patient_id</div><div class="hebmu-pd-head">stage</div>
+      <div class="hebmu-pd-idx">0</div><div class="hebmu-pd-cell">LC001</div><div class="hebmu-pd-cell">IIIB</div>
+      <div class="hebmu-pd-idx">1</div><div class="hebmu-pd-cell">LC002</div><div class="hebmu-pd-cell">II</div>
+      <div class="hebmu-pd-idx">2</div><div class="hebmu-pd-cell">LC004</div><div class="hebmu-pd-cell">IIIA</div>
     </div>
   </div>
-  <div class="rx-arrow" aria-hidden="true">→</div>
+  <div class="hebmu-pd-arrow rx-arrow" aria-hidden="true">→</div>
   <div class="rx-col">
-    <div class="rx-tag">stage Series（ID 已是索引）</div>
-    <div class="rx-frame is-2col" aria-label="stage series">
-      <div class="rx-head">index</div><div class="rx-head">stage</div>
-      <div class="rx-idx">LC001</div><div class="rx-cell">IIIB</div>
-      <div class="rx-idx">LC002</div><div class="rx-cell">II</div>
-      <div class="rx-idx">LC004</div><div class="rx-cell">IIIA</div>
+    <div class="hebmu-pd-tag rx-tag">stage Series（ID 已是索引）</div>
+    <div class="hebmu-pd-frame is-2col" aria-label="stage series">
+      <div class="hebmu-pd-head">index</div><div class="hebmu-pd-head">stage</div>
+      <div class="hebmu-pd-idx">LC001</div><div class="hebmu-pd-cell">IIIB</div>
+      <div class="hebmu-pd-idx">LC002</div><div class="hebmu-pd-cell">II</div>
+      <div class="hebmu-pd-idx">LC004</div><div class="hebmu-pd-cell">IIIA</div>
     </div>
   </div>
 </div>
@@ -991,31 +976,31 @@ aligned = stage.reindex(expr_df["patient_id"])
 </div>
 <div class="rx-step">
   <div class="rx-col">
-    <div class="rx-tag">stage</div>
-    <div class="rx-frame is-2col" aria-label="stage again">
-      <div class="rx-head">index</div><div class="rx-head">stage</div>
-      <div class="rx-idx">LC001</div><div class="rx-cell">IIIB</div>
-      <div class="rx-idx">LC002</div><div class="rx-cell">II</div>
-      <div class="rx-idx">LC004</div><div class="rx-cell">IIIA</div>
+    <div class="hebmu-pd-tag rx-tag">stage</div>
+    <div class="hebmu-pd-frame is-2col" aria-label="stage again">
+      <div class="hebmu-pd-head">index</div><div class="hebmu-pd-head">stage</div>
+      <div class="hebmu-pd-idx">LC001</div><div class="hebmu-pd-cell">IIIB</div>
+      <div class="hebmu-pd-idx">LC002</div><div class="hebmu-pd-cell">II</div>
+      <div class="hebmu-pd-idx">LC004</div><div class="hebmu-pd-cell">IIIA</div>
     </div>
   </div>
   <div class="rx-col">
-    <div class="rx-tag">expr 的 ID 顺序</div>
-    <div class="rx-frame is-ids" aria-label="expr patient_id order">
-      <div class="rx-head">patient_id</div>
-      <div class="rx-cell">LC002</div>
-      <div class="rx-cell">LC001</div>
-      <div class="rx-cell">LC004</div>
+    <div class="hebmu-pd-tag rx-tag">expr 的 ID 顺序</div>
+    <div class="hebmu-pd-frame is-ids" aria-label="expr patient_id order">
+      <div class="hebmu-pd-head">patient_id</div>
+      <div class="hebmu-pd-cell">LC002</div>
+      <div class="hebmu-pd-cell">LC001</div>
+      <div class="hebmu-pd-cell">LC004</div>
     </div>
   </div>
-  <div class="rx-arrow" aria-hidden="true">→</div>
+  <div class="hebmu-pd-arrow rx-arrow" aria-hidden="true">→</div>
   <div class="rx-col">
-    <div class="rx-tag">aligned（跟 expr 同行序）</div>
-    <div class="rx-frame is-2col" aria-label="aligned">
-      <div class="rx-head">index</div><div class="rx-head">stage</div>
-      <div class="rx-idx">LC002</div><div class="rx-cell">II</div>
-      <div class="rx-idx">LC001</div><div class="rx-cell">IIIB</div>
-      <div class="rx-idx">LC004</div><div class="rx-cell">IIIA</div>
+    <div class="hebmu-pd-tag rx-tag">aligned（跟 expr 同行序）</div>
+    <div class="hebmu-pd-frame is-2col" aria-label="aligned">
+      <div class="hebmu-pd-head">index</div><div class="hebmu-pd-head">stage</div>
+      <div class="hebmu-pd-idx">LC002</div><div class="hebmu-pd-cell">II</div>
+      <div class="hebmu-pd-idx">LC001</div><div class="hebmu-pd-cell">IIIB</div>
+      <div class="hebmu-pd-idx">LC004</div><div class="hebmu-pd-cell">IIIA</div>
     </div>
   </div>
 </div>
@@ -1062,26 +1047,19 @@ density: compact
 }
 .gb-tag {
   font-size: 20px;
-  font-weight: 700;
-  color: var(--hebmu-primary, #4e136c);
   line-height: 1.2;
-  text-align: center;
 }
 .gb-arrow {
-  color: var(--hebmu-purple-soft, #8f55ad);
   font-size: 2.25rem;
-  font-weight: 700;
-  line-height: 1;
   text-align: center;
 }
-.gb-frame {
-  display: grid;
+.hebmu-pd-frame {
   gap: 0.27rem 0.3rem;
   font-size: 18px;
   line-height: 1.1;
 }
-.gb-frame.is-2col { grid-template-columns: minmax(4.8rem, 1fr) minmax(6.3rem, 1fr); }
-.gb-frame.is-surv { grid-template-columns: minmax(5.4rem, 1fr); }
+.hebmu-pd-frame.is-2col { grid-template-columns: minmax(4.8rem, 1fr) minmax(6.3rem, 1fr); }
+.hebmu-pd-frame.is-surv { grid-template-columns: minmax(5.4rem, 1fr); }
 .gb-groups {
   display: flex;
   flex-direction: row;
@@ -1090,17 +1068,12 @@ density: compact
 }
 .gb-group-label {
   font-size: 17px;
-  font-weight: 700;
-  color: var(--hebmu-primary, #4e136c);
-  text-align: center;
   margin-bottom: 0.075rem;
 }
-.gb-head, .gb-cell {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.hebmu-pd-head, .hebmu-pd-cell {
   border-radius: 6px;
   min-height: 2.175rem;
+  min-width: 0;
   padding: 0 0.3rem;
 }
 .gb-code {
@@ -1115,58 +1088,58 @@ density: compact
 
 <div class="gb-flow">
 
-<div class="gb-tag">① 原表</div>
+<div class="hebmu-pd-tag gb-tag">① 原表</div>
 <div></div>
-<div class="gb-tag">② 切组</div>
+<div class="hebmu-pd-tag gb-tag">② 切组</div>
 <div></div>
-<div class="gb-tag">③ 每组 median → 小表</div>
+<div class="hebmu-pd-tag gb-tag">③ 每组 median → 小表</div>
 
-<div class="gb-frame is-2col" aria-label="input df">
-  <div class="gb-head">stage</div><div class="gb-head">survival</div>
-  <div class="gb-cell">II</div><div class="gb-cell">41.2</div>
-  <div class="gb-cell">IIIB</div><div class="gb-cell">18.3</div>
-  <div class="gb-cell">IV</div><div class="gb-cell">7.6</div>
-  <div class="gb-cell">II</div><div class="gb-cell">38.5</div>
-  <div class="gb-cell">IIIB</div><div class="gb-cell">15.1</div>
-  <div class="gb-cell">IV</div><div class="gb-cell">4.2</div>
+<div class="hebmu-pd-frame is-2col" aria-label="input df">
+  <div class="hebmu-pd-head">stage</div><div class="hebmu-pd-head">survival</div>
+  <div class="hebmu-pd-cell">II</div><div class="hebmu-pd-cell">41.2</div>
+  <div class="hebmu-pd-cell">IIIB</div><div class="hebmu-pd-cell">18.3</div>
+  <div class="hebmu-pd-cell">IV</div><div class="hebmu-pd-cell">7.6</div>
+  <div class="hebmu-pd-cell">II</div><div class="hebmu-pd-cell">38.5</div>
+  <div class="hebmu-pd-cell">IIIB</div><div class="hebmu-pd-cell">15.1</div>
+  <div class="hebmu-pd-cell">IV</div><div class="hebmu-pd-cell">4.2</div>
 </div>
 
-<div class="gb-arrow" aria-hidden="true">→</div>
+<div class="hebmu-pd-arrow gb-arrow" aria-hidden="true">→</div>
 
 <div class="gb-groups">
   <div>
-    <div class="gb-group-label">stage=II</div>
-    <div class="gb-frame is-surv" aria-label="group II">
-      <div class="gb-head">survival</div>
-      <div class="gb-cell">41.2</div>
-      <div class="gb-cell">38.5</div>
+    <div class="hebmu-pd-group-label gb-group-label">stage=II</div>
+    <div class="hebmu-pd-frame is-surv" aria-label="group II">
+      <div class="hebmu-pd-head">survival</div>
+      <div class="hebmu-pd-cell">41.2</div>
+      <div class="hebmu-pd-cell">38.5</div>
     </div>
   </div>
   <div>
-    <div class="gb-group-label">stage=IIIB</div>
-    <div class="gb-frame is-surv" aria-label="group IIIB">
-      <div class="gb-head">survival</div>
-      <div class="gb-cell">18.3</div>
-      <div class="gb-cell">15.1</div>
+    <div class="hebmu-pd-group-label gb-group-label">stage=IIIB</div>
+    <div class="hebmu-pd-frame is-surv" aria-label="group IIIB">
+      <div class="hebmu-pd-head">survival</div>
+      <div class="hebmu-pd-cell">18.3</div>
+      <div class="hebmu-pd-cell">15.1</div>
     </div>
   </div>
   <div>
-    <div class="gb-group-label">stage=IV</div>
-    <div class="gb-frame is-surv" aria-label="group IV">
-      <div class="gb-head">survival</div>
-      <div class="gb-cell">7.6</div>
-      <div class="gb-cell">4.2</div>
+    <div class="hebmu-pd-group-label gb-group-label">stage=IV</div>
+    <div class="hebmu-pd-frame is-surv" aria-label="group IV">
+      <div class="hebmu-pd-head">survival</div>
+      <div class="hebmu-pd-cell">7.6</div>
+      <div class="hebmu-pd-cell">4.2</div>
     </div>
   </div>
 </div>
 
-<div class="gb-arrow" aria-hidden="true">→</div>
+<div class="hebmu-pd-arrow gb-arrow" aria-hidden="true">→</div>
 
-<div class="gb-frame is-2col" aria-label="result">
-  <div class="gb-head">stage</div><div class="gb-head">median</div>
-  <div class="gb-cell">II</div><div class="gb-cell">39.85</div>
-  <div class="gb-cell">IIIB</div><div class="gb-cell">16.7</div>
-  <div class="gb-cell">IV</div><div class="gb-cell">5.9</div>
+<div class="hebmu-pd-frame is-2col" aria-label="result">
+  <div class="hebmu-pd-head">stage</div><div class="hebmu-pd-head">median</div>
+  <div class="hebmu-pd-cell">II</div><div class="hebmu-pd-cell">39.85</div>
+  <div class="hebmu-pd-cell">IIIB</div><div class="hebmu-pd-cell">16.7</div>
+  <div class="hebmu-pd-cell">IV</div><div class="hebmu-pd-cell">5.9</div>
 </div>
 
 </div>
@@ -1262,33 +1235,26 @@ density: compact
 }
 .ai-tag {
   font-size: 20px;
-  font-weight: 700;
-  color: var(--hebmu-primary, #4e136c);
   line-height: 1.2;
-  text-align: center;
 }
 .ai-hint {
   font-size: 18px;
   color: var(--hebmu-text, #202020);
   line-height: 1.25;
-  text-align: center;
   opacity: 0.85;
   font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
 }
-.ai-frame {
-  display: grid;
+.hebmu-pd-frame {
   gap: 0.27rem 0.3rem;
   font-size: 20px;
   line-height: 1.1;
 }
-.ai-frame.is-mi { grid-template-columns: minmax(4.8rem, 1fr) minmax(5.4rem, 1fr) minmax(3.6rem, 1fr); }
-.ai-frame.is-flat { grid-template-columns: 2.7rem minmax(4.8rem, 1fr) minmax(5.4rem, 1fr) minmax(3.6rem, 1fr); }
-.ai-idx, .ai-head, .ai-cell {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.hebmu-pd-frame.is-mi { grid-template-columns: minmax(4.8rem, 1fr) minmax(5.4rem, 1fr) minmax(3.6rem, 1fr); }
+.hebmu-pd-frame.is-flat { grid-template-columns: 2.7rem minmax(4.8rem, 1fr) minmax(5.4rem, 1fr) minmax(3.6rem, 1fr); }
+.hebmu-pd-idx, .hebmu-pd-head, .hebmu-pd-cell {
   border-radius: 5px;
   min-height: 2.3rem;
+  min-width: 0;
   padding: 0 0.375rem;
 }
 </style>
@@ -1301,25 +1267,25 @@ df.groupby(["stage", "smoking"], as_index=False).agg(...)        # 结果是普�
 <div class="ai-pair">
 
 <div class="ai-col">
-  <div class="ai-tag">默认 · MultiIndex 行索引</div>
-  <div class="ai-frame is-mi" aria-label="default MultiIndex result">
-    <div class="ai-head">stage</div><div class="ai-head">smoking</div><div class="ai-head">n</div>
-    <div class="ai-idx">II</div><div class="ai-idx">no</div><div class="ai-cell">5</div>
-    <div class="ai-idx">II</div><div class="ai-idx">yes</div><div class="ai-cell">3</div>
-    <div class="ai-idx">IIIA</div><div class="ai-idx">yes</div><div class="ai-cell">1</div>
+  <div class="hebmu-pd-tag ai-tag">默认 · MultiIndex 行索引</div>
+  <div class="hebmu-pd-frame is-mi" aria-label="default MultiIndex result">
+    <div class="hebmu-pd-head">stage</div><div class="hebmu-pd-head">smoking</div><div class="hebmu-pd-head">n</div>
+    <div class="hebmu-pd-idx">II</div><div class="hebmu-pd-idx">no</div><div class="hebmu-pd-cell">5</div>
+    <div class="hebmu-pd-idx">II</div><div class="hebmu-pd-idx">yes</div><div class="hebmu-pd-cell">3</div>
+    <div class="hebmu-pd-idx">IIIA</div><div class="hebmu-pd-idx">yes</div><div class="hebmu-pd-cell">1</div>
   </div>
-  <div class="ai-hint">取值要元组 · df.loc[("II","yes")]</div>
+  <div class="hebmu-pd-hint ai-hint">取值要元组 · df.loc[("II","yes")]</div>
 </div>
 
 <div class="ai-col">
-  <div class="ai-tag">as_index=False · 普通平表</div>
-  <div class="ai-frame is-flat" aria-label="as_index=False flat result">
-    <div></div><div class="ai-head">stage</div><div class="ai-head">smoking</div><div class="ai-head">n</div>
-    <div class="ai-idx">0</div><div class="ai-cell">II</div><div class="ai-cell">no</div><div class="ai-cell">5</div>
-    <div class="ai-idx">1</div><div class="ai-cell">II</div><div class="ai-cell">yes</div><div class="ai-cell">3</div>
-    <div class="ai-idx">2</div><div class="ai-cell">IIIA</div><div class="ai-cell">yes</div><div class="ai-cell">1</div>
+  <div class="hebmu-pd-tag ai-tag">as_index=False · 普通平表</div>
+  <div class="hebmu-pd-frame is-flat" aria-label="as_index=False flat result">
+    <div></div><div class="hebmu-pd-head">stage</div><div class="hebmu-pd-head">smoking</div><div class="hebmu-pd-head">n</div>
+    <div class="hebmu-pd-idx">0</div><div class="hebmu-pd-cell">II</div><div class="hebmu-pd-cell">no</div><div class="hebmu-pd-cell">5</div>
+    <div class="hebmu-pd-idx">1</div><div class="hebmu-pd-cell">II</div><div class="hebmu-pd-cell">yes</div><div class="hebmu-pd-cell">3</div>
+    <div class="hebmu-pd-idx">2</div><div class="hebmu-pd-cell">IIIA</div><div class="hebmu-pd-cell">yes</div><div class="hebmu-pd-cell">1</div>
   </div>
-  <div class="ai-hint">直接 to_csv · df["n"]</div>
+  <div class="hebmu-pd-hint ai-hint">直接 to_csv · df["n"]</div>
 </div>
 
 </div>
@@ -1354,17 +1320,18 @@ density: compact
 .ml-tag { font-size: 20px; }
 .ml-hint { font-size: 17px; }
 .ml-arrow { font-size: 2.34rem; padding-top: 1.82rem; }
-.ml-frame {
+.hebmu-pd-frame {
   gap: 0.21rem 0.23rem;
   font-size: 17px;
 }
-.ml-idx, .ml-head, .ml-cell {
+.hebmu-pd-idx, .hebmu-pd-head, .hebmu-pd-cell {
   border-radius: 5px;
   min-height: 1.885rem;
+  min-width: 0;
   padding: 0 0.286rem;
 }
-.ml-frame.is-wide { grid-template-columns: 2.08rem repeat(4, minmax(4.42rem, 1fr)); }
-.ml-frame.is-long { grid-template-columns: 2.08rem minmax(5.46rem, 1fr) minmax(4.16rem, 1fr) minmax(4.68rem, 1fr); }
+.hebmu-pd-frame.is-wide { grid-template-columns: 2.08rem repeat(4, minmax(4.42rem, 1fr)); }
+.hebmu-pd-frame.is-long { grid-template-columns: 2.08rem minmax(5.46rem, 1fr) minmax(4.16rem, 1fr) minmax(4.68rem, 1fr); }
 </style>
 
 ```python
@@ -1377,28 +1344,28 @@ long = mini.melt(id_vars="patient_id",
 <div class="ml-pair">
 
 <div class="ml-col">
-  <div class="ml-tag">宽表 · 2样本×3基因</div>
-  <div class="ml-frame is-wide" aria-label="wide mini">
-    <div></div><div class="ml-head">patient_id</div><div class="ml-head">EGFR</div><div class="ml-head">KRAS</div><div class="ml-head">TP53</div>
-    <div class="ml-idx">0</div><div class="ml-cell">LC001</div><div class="ml-cell">117.93</div><div class="ml-cell">4.84</div><div class="ml-cell">16.09</div>
-    <div class="ml-idx">1</div><div class="ml-cell">LC002</div><div class="ml-cell">22.89</div><div class="ml-cell">15.81</div><div class="ml-cell">46.02</div>
+  <div class="hebmu-pd-tag ml-tag">宽表 · 2样本×3基因</div>
+  <div class="hebmu-pd-frame is-wide" aria-label="wide mini">
+    <div></div><div class="hebmu-pd-head">patient_id</div><div class="hebmu-pd-head">EGFR</div><div class="hebmu-pd-head">KRAS</div><div class="hebmu-pd-head">TP53</div>
+    <div class="hebmu-pd-idx">0</div><div class="hebmu-pd-cell">LC001</div><div class="hebmu-pd-cell">117.93</div><div class="hebmu-pd-cell">4.84</div><div class="hebmu-pd-cell">16.09</div>
+    <div class="hebmu-pd-idx">1</div><div class="hebmu-pd-cell">LC002</div><div class="hebmu-pd-cell">22.89</div><div class="hebmu-pd-cell">15.81</div><div class="hebmu-pd-cell">46.02</div>
   </div>
 </div>
 
-<div class="ml-arrow" aria-hidden="true">→</div>
+<div class="hebmu-pd-arrow ml-arrow" aria-hidden="true">→</div>
 
 <div class="ml-col">
-  <div class="ml-tag">长表 · 6行 = 2×3</div>
-  <div class="ml-frame is-long" aria-label="long after melt">
-    <div></div><div class="ml-head">patient_id</div><div class="ml-head">gene</div><div class="ml-head">tpm</div>
-    <div class="ml-idx">0</div><div class="ml-cell">LC001</div><div class="ml-cell">EGFR</div><div class="ml-cell">117.93</div>
-    <div class="ml-idx">1</div><div class="ml-cell">LC002</div><div class="ml-cell">EGFR</div><div class="ml-cell">22.89</div>
-    <div class="ml-idx">2</div><div class="ml-cell">LC001</div><div class="ml-cell">KRAS</div><div class="ml-cell">4.84</div>
-    <div class="ml-idx">3</div><div class="ml-cell">LC002</div><div class="ml-cell">KRAS</div><div class="ml-cell">15.81</div>
-    <div class="ml-idx">4</div><div class="ml-cell">LC001</div><div class="ml-cell">TP53</div><div class="ml-cell">16.09</div>
-    <div class="ml-idx">5</div><div class="ml-cell">LC002</div><div class="ml-cell">TP53</div><div class="ml-cell">46.02</div>
+  <div class="hebmu-pd-tag ml-tag">长表 · 6行 = 2×3</div>
+  <div class="hebmu-pd-frame is-long" aria-label="long after melt">
+    <div></div><div class="hebmu-pd-head">patient_id</div><div class="hebmu-pd-head">gene</div><div class="hebmu-pd-head">tpm</div>
+    <div class="hebmu-pd-idx">0</div><div class="hebmu-pd-cell">LC001</div><div class="hebmu-pd-cell">EGFR</div><div class="hebmu-pd-cell">117.93</div>
+    <div class="hebmu-pd-idx">1</div><div class="hebmu-pd-cell">LC002</div><div class="hebmu-pd-cell">EGFR</div><div class="hebmu-pd-cell">22.89</div>
+    <div class="hebmu-pd-idx">2</div><div class="hebmu-pd-cell">LC001</div><div class="hebmu-pd-cell">KRAS</div><div class="hebmu-pd-cell">4.84</div>
+    <div class="hebmu-pd-idx">3</div><div class="hebmu-pd-cell">LC002</div><div class="hebmu-pd-cell">KRAS</div><div class="hebmu-pd-cell">15.81</div>
+    <div class="hebmu-pd-idx">4</div><div class="hebmu-pd-cell">LC001</div><div class="hebmu-pd-cell">TP53</div><div class="hebmu-pd-cell">16.09</div>
+    <div class="hebmu-pd-idx">5</div><div class="hebmu-pd-cell">LC002</div><div class="hebmu-pd-cell">TP53</div><div class="hebmu-pd-cell">46.02</div>
   </div>
-  <div class="ml-hint">6行 = 2样本 × 3基因</div>
+  <div class="hebmu-pd-hint ml-hint">6行 = 2样本 × 3基因</div>
 </div>
 
 </div>
@@ -1426,17 +1393,18 @@ density: compact
 .pv-tag { font-size: 20px; }
 .pv-hint { font-size: 17px; }
 .pv-arrow { font-size: 2.34rem; padding-top: 1.82rem; }
-.pv-frame {
+.hebmu-pd-frame {
   gap: 0.21rem 0.23rem;
   font-size: 17px;
 }
-.pv-idx, .pv-head, .pv-cell {
+.hebmu-pd-idx, .hebmu-pd-head, .hebmu-pd-cell {
   border-radius: 5px;
   min-height: 1.885rem;
+  min-width: 0;
   padding: 0 0.286rem;
 }
-.pv-frame.is-long { grid-template-columns: 2.08rem minmax(5.46rem, 1fr) minmax(4.16rem, 1fr) minmax(4.68rem, 1fr); }
-.pv-frame.is-wide { grid-template-columns: minmax(5.46rem, 1fr) repeat(3, minmax(4.42rem, 1fr)); }
+.hebmu-pd-frame.is-long { grid-template-columns: 2.08rem minmax(5.46rem, 1fr) minmax(4.16rem, 1fr) minmax(4.68rem, 1fr); }
+.hebmu-pd-frame.is-wide { grid-template-columns: minmax(5.46rem, 1fr) repeat(3, minmax(4.42rem, 1fr)); }
 </style>
 
 ```python
@@ -1451,28 +1419,28 @@ pt = long.pivot_table(index="patient_id", columns="gene",
 <div class="pv-pair">
 
 <div class="pv-col">
-  <div class="pv-tag">长表 long · 6行</div>
-  <div class="pv-frame is-long" aria-label="long before pivot">
-    <div></div><div class="pv-head">patient_id</div><div class="pv-head">gene</div><div class="pv-head">tpm</div>
-    <div class="pv-idx">0</div><div class="pv-cell">LC001</div><div class="pv-cell">EGFR</div><div class="pv-cell">117.93</div>
-    <div class="pv-idx">1</div><div class="pv-cell">LC002</div><div class="pv-cell">EGFR</div><div class="pv-cell">22.89</div>
-    <div class="pv-idx">2</div><div class="pv-cell">LC001</div><div class="pv-cell">KRAS</div><div class="pv-cell">4.84</div>
-    <div class="pv-idx">3</div><div class="pv-cell">LC002</div><div class="pv-cell">KRAS</div><div class="pv-cell">15.81</div>
-    <div class="pv-idx">4</div><div class="pv-cell">LC001</div><div class="pv-cell">TP53</div><div class="pv-cell">16.09</div>
-    <div class="pv-idx">5</div><div class="pv-cell">LC002</div><div class="pv-cell">TP53</div><div class="pv-cell">46.02</div>
+  <div class="hebmu-pd-tag pv-tag">长表 long · 6行</div>
+  <div class="hebmu-pd-frame is-long" aria-label="long before pivot">
+    <div></div><div class="hebmu-pd-head">patient_id</div><div class="hebmu-pd-head">gene</div><div class="hebmu-pd-head">tpm</div>
+    <div class="hebmu-pd-idx">0</div><div class="hebmu-pd-cell">LC001</div><div class="hebmu-pd-cell">EGFR</div><div class="hebmu-pd-cell">117.93</div>
+    <div class="hebmu-pd-idx">1</div><div class="hebmu-pd-cell">LC002</div><div class="hebmu-pd-cell">EGFR</div><div class="hebmu-pd-cell">22.89</div>
+    <div class="hebmu-pd-idx">2</div><div class="hebmu-pd-cell">LC001</div><div class="hebmu-pd-cell">KRAS</div><div class="hebmu-pd-cell">4.84</div>
+    <div class="hebmu-pd-idx">3</div><div class="hebmu-pd-cell">LC002</div><div class="hebmu-pd-cell">KRAS</div><div class="hebmu-pd-cell">15.81</div>
+    <div class="hebmu-pd-idx">4</div><div class="hebmu-pd-cell">LC001</div><div class="hebmu-pd-cell">TP53</div><div class="hebmu-pd-cell">16.09</div>
+    <div class="hebmu-pd-idx">5</div><div class="hebmu-pd-cell">LC002</div><div class="hebmu-pd-cell">TP53</div><div class="hebmu-pd-cell">46.02</div>
   </div>
 </div>
 
-<div class="pv-arrow" aria-hidden="true">→</div>
+<div class="hebmu-pd-arrow pv-arrow" aria-hidden="true">→</div>
 
 <div class="pv-col">
-  <div class="pv-tag">宽表 wide · 2×3</div>
-  <div class="pv-frame is-wide" aria-label="wide after pivot">
-    <div class="pv-head">patient_id</div><div class="pv-head">EGFR</div><div class="pv-head">KRAS</div><div class="pv-head">TP53</div>
-    <div class="pv-idx">LC001</div><div class="pv-cell">117.93</div><div class="pv-cell">4.84</div><div class="pv-cell">16.09</div>
-    <div class="pv-idx">LC002</div><div class="pv-cell">22.89</div><div class="pv-cell">15.81</div><div class="pv-cell">46.02</div>
+  <div class="hebmu-pd-tag pv-tag">宽表 wide · 2×3</div>
+  <div class="hebmu-pd-frame is-wide" aria-label="wide after pivot">
+    <div class="hebmu-pd-head">patient_id</div><div class="hebmu-pd-head">EGFR</div><div class="hebmu-pd-head">KRAS</div><div class="hebmu-pd-head">TP53</div>
+    <div class="hebmu-pd-idx">LC001</div><div class="hebmu-pd-cell">117.93</div><div class="hebmu-pd-cell">4.84</div><div class="hebmu-pd-cell">16.09</div>
+    <div class="hebmu-pd-idx">LC002</div><div class="hebmu-pd-cell">22.89</div><div class="hebmu-pd-cell">15.81</div><div class="hebmu-pd-cell">46.02</div>
   </div>
-  <div class="pv-hint">gene 回到列名 · 与 melt 前一致</div>
+  <div class="hebmu-pd-hint pv-hint">gene 回到列名 · 与 melt 前一致</div>
 </div>
 
 </div>
