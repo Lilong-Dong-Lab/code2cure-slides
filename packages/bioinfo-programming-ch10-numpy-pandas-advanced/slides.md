@@ -859,7 +859,7 @@ left, right = expr.iloc[:, :10], expr.iloc[:, 10:]  # 表达矩阵左右两半
 <div class="concat-code">
 
 ```python
-pd.concat([batch_a, batch_b], axis=0)   # 原索引保留
+pd.concat([batch_a, batch_b], axis=0)
 ```
 
 </div>
