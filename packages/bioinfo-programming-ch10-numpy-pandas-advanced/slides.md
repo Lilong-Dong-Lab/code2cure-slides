@@ -714,9 +714,9 @@ left, right = expr.iloc[:, :10], expr.iloc[:, 10:]  # 表达矩阵左右两半
 .concat-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: auto 1fr auto auto;
-  gap: 0.35rem 1.1rem;
-  margin: 0.25rem 0 0.3rem;
+  grid-template-rows: auto auto auto auto;
+  gap: 0.2rem 1.1rem;
+  margin: 0.2rem 0 0.2rem;
   align-items: stretch;
 }
 .concat-caption {
@@ -783,7 +783,7 @@ left, right = expr.iloc[:, :10], expr.iloc[:, 10:]  # 表达矩阵左右两半
   text-align: center;
 }
 .concat-scene {
-  margin: 0.2rem 0 0.3rem;
+  margin: 0.1rem 0 0.15rem;
   font-size: 14px;
   text-align: center;
 }
@@ -859,7 +859,7 @@ left, right = expr.iloc[:, :10], expr.iloc[:, 10:]  # 表达矩阵左右两半
 <div class="concat-code">
 
 ```python
-pd.concat([batch_a, batch_b], axis=0)   # 默认保留原索引（0,1,0,1）；重编号 → ignore_index=True（课后自学）
+pd.concat([batch_a, batch_b], axis=0)   # 原索引保留
 ```
 
 </div>
@@ -1314,7 +1314,6 @@ density: compact
 # 长宽转换：melt 融化 = 宽变长
 
 <style scoped>
-/* 1.3× shared melt sizes (pivot keeps the lectures/styles defaults) */
 .ml-pair { gap: 1.43rem; margin: 0.455rem 0 0.39rem; }
 .ml-col { gap: 0.325rem; }
 .ml-tag { font-size: 20px; }
@@ -1387,7 +1386,6 @@ density: compact
 # pivot / pivot_table：长转宽
 
 <style scoped>
-/* 1.3× shared pivot sizes (mirrors melt slide overrides) */
 .pv-pair { gap: 1.43rem; margin: 0.455rem 0 0.39rem; }
 .pv-col { gap: 0.325rem; }
 .pv-tag { font-size: 20px; }
