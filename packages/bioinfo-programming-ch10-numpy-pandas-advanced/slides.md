@@ -1314,23 +1314,23 @@ density: compact
 # 长宽转换：melt 融化 = 宽变长
 
 <style scoped>
-.ml-pair { gap: 1.43rem; margin: 0.455rem 0 0.39rem; }
-.ml-col { gap: 0.325rem; }
-.ml-tag { font-size: 20px; }
-.ml-hint { font-size: 17px; }
-.ml-arrow { font-size: 2.34rem; padding-top: 1.82rem; }
+.ml-pair { gap: 1rem; margin: 0.3rem 0 0.25rem; }
+.ml-col { gap: 0.25rem; }
+.ml-tag { font-size: 16px; }
+.ml-hint { font-size: 14px; }
+.ml-arrow { font-size: 1.8rem; padding-top: 0; }
 .hebmu-pd-frame {
-  gap: 0.21rem 0.23rem;
-  font-size: 17px;
+  gap: 0.18rem 0.2rem;
+  font-size: 14px;
 }
 .hebmu-pd-idx, .hebmu-pd-head, .hebmu-pd-cell {
-  border-radius: 5px;
-  min-height: 1.885rem;
+  border-radius: 4px;
+  min-height: 1.5rem;
   min-width: 0;
-  padding: 0 0.286rem;
+  padding: 0 0.22rem;
 }
-.hebmu-pd-frame.is-wide { grid-template-columns: 2.08rem repeat(4, minmax(4.42rem, 1fr)); }
-.hebmu-pd-frame.is-long { grid-template-columns: 2.08rem minmax(5.46rem, 1fr) minmax(4.16rem, 1fr) minmax(4.68rem, 1fr); }
+.hebmu-pd-frame.is-wide { grid-template-columns: 1.8rem repeat(4, minmax(3.6rem, 1fr)); }
+.hebmu-pd-frame.is-long { grid-template-columns: 1.8rem minmax(4.4rem, 1fr) minmax(3.4rem, 1fr) minmax(3.8rem, 1fr); }
 </style>
 
 ```python
@@ -1340,9 +1340,9 @@ long = mini.melt(id_vars="patient_id",
                  var_name="gene", value_name="tpm")
 ```
 
-<div class="ml-pair">
+<div class="hebmu-pd ml-pair">
 
-<div class="ml-col">
+<div class="hebmu-pd-col ml-col">
   <div class="hebmu-pd-tag ml-tag">宽表 · 2样本×3基因</div>
   <div class="hebmu-pd-frame is-wide" aria-label="wide mini">
     <div></div><div class="hebmu-pd-head">patient_id</div><div class="hebmu-pd-head">EGFR</div><div class="hebmu-pd-head">KRAS</div><div class="hebmu-pd-head">TP53</div>
@@ -1353,7 +1353,7 @@ long = mini.melt(id_vars="patient_id",
 
 <div class="hebmu-pd-arrow ml-arrow" aria-hidden="true">→</div>
 
-<div class="ml-col">
+<div class="hebmu-pd-col ml-col">
   <div class="hebmu-pd-tag ml-tag">长表 · 6行 = 2×3</div>
   <div class="hebmu-pd-frame is-long" aria-label="long after melt">
     <div></div><div class="hebmu-pd-head">patient_id</div><div class="hebmu-pd-head">gene</div><div class="hebmu-pd-head">tpm</div>
@@ -1386,23 +1386,23 @@ density: compact
 # pivot / pivot_table：长转宽
 
 <style scoped>
-.pv-pair { gap: 1.43rem; margin: 0.455rem 0 0.39rem; }
-.pv-col { gap: 0.325rem; }
-.pv-tag { font-size: 20px; }
-.pv-hint { font-size: 17px; }
-.pv-arrow { font-size: 2.34rem; padding-top: 1.82rem; }
+.pv-pair { gap: 1rem; margin: 0.3rem 0 0.25rem; }
+.pv-col { gap: 0.25rem; }
+.pv-tag { font-size: 16px; }
+.pv-hint { font-size: 14px; }
+.pv-arrow { font-size: 1.8rem; padding-top: 0; }
 .hebmu-pd-frame {
-  gap: 0.21rem 0.23rem;
-  font-size: 17px;
+  gap: 0.18rem 0.2rem;
+  font-size: 14px;
 }
 .hebmu-pd-idx, .hebmu-pd-head, .hebmu-pd-cell {
-  border-radius: 5px;
-  min-height: 1.885rem;
+  border-radius: 4px;
+  min-height: 1.5rem;
   min-width: 0;
-  padding: 0 0.286rem;
+  padding: 0 0.22rem;
 }
-.hebmu-pd-frame.is-long { grid-template-columns: 2.08rem minmax(5.46rem, 1fr) minmax(4.16rem, 1fr) minmax(4.68rem, 1fr); }
-.hebmu-pd-frame.is-wide { grid-template-columns: minmax(5.46rem, 1fr) repeat(3, minmax(4.42rem, 1fr)); }
+.hebmu-pd-frame.is-long { grid-template-columns: 1.8rem minmax(4.4rem, 1fr) minmax(3.4rem, 1fr) minmax(3.8rem, 1fr); }
+.hebmu-pd-frame.is-wide { grid-template-columns: minmax(4.4rem, 1fr) repeat(3, minmax(3.6rem, 1fr)); }
 </style>
 
 ```python
@@ -1414,9 +1414,9 @@ pt = long.pivot_table(index="patient_id", columns="gene",
                       values="tpm", aggfunc="mean")
 ```
 
-<div class="pv-pair">
+<div class="hebmu-pd pv-pair">
 
-<div class="pv-col">
+<div class="hebmu-pd-col pv-col">
   <div class="hebmu-pd-tag pv-tag">长表 long · 6行</div>
   <div class="hebmu-pd-frame is-long" aria-label="long before pivot">
     <div></div><div class="hebmu-pd-head">patient_id</div><div class="hebmu-pd-head">gene</div><div class="hebmu-pd-head">tpm</div>
@@ -1431,7 +1431,7 @@ pt = long.pivot_table(index="patient_id", columns="gene",
 
 <div class="hebmu-pd-arrow pv-arrow" aria-hidden="true">→</div>
 
-<div class="pv-col">
+<div class="hebmu-pd-col pv-col">
   <div class="hebmu-pd-tag pv-tag">宽表 wide · 2×3</div>
   <div class="hebmu-pd-frame is-wide" aria-label="wide after pivot">
     <div class="hebmu-pd-head">patient_id</div><div class="hebmu-pd-head">EGFR</div><div class="hebmu-pd-head">KRAS</div><div class="hebmu-pd-head">TP53</div>
