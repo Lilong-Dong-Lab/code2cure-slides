@@ -1,7 +1,3 @@
-// Cover H1 vs purple wave clearance on a running deck.
-// Usage: node scripts/check-cover-clearance.mjs
-// Env: COVER_URL (default http://localhost:5230/1)
-
 import { homedir } from "node:os";
 import { existsSync, readdirSync } from "node:fs";
 import { join } from "node:path";
