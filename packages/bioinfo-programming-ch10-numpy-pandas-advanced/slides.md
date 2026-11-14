@@ -41,7 +41,7 @@ htmlAttrs:
 exportFilename: ch10-numpy-pandas-advanced
 ---
 
-# 第十讲 Python数据分析 NumPy与Pandas进阶
+# 第十讲 NumPy与Pandas进阶
 ## Python Data Analysis: NumPy & Advanced Pandas
 
 ---
